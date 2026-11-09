@@ -1,0 +1,27 @@
+id: GBT51350-2019
+version: '2019'
+rules:
+  - id: GBT51350-2019:4.0.2
+    title: 住宅主要房间人均新风量
+    strength: 应
+    params: {unit: 'm3/(s·人)'}
+    check: {op: min, limit: 0.008333333333333333}
+    source: GB/T 51350-2019 第4.0.2条，转述
+  - id: GBT51350-2019:6.2.7:sensible
+    title: 近零能耗住宅显热回收效率
+    strength: 应
+    params: {unit: '1'}
+    check: {op: min, limit: 0.75}
+    source: GB/T 51350-2019 第6.2.7条，按示例条件转述
+  - id: GBT51350-2019:6.2.7:total
+    title: 近零能耗住宅全热回收效率
+    strength: 应
+    params: {unit: '1'}
+    check: {op: min, limit: 0.70}
+    source: GB/T 51350-2019 第6.2.7条，按示例条件转述
+  - id: GBT51350-2019:6.2.8:sfp
+    title: 单位风量耗功率
+    strength: 应
+    params: {unit: 'W/(m3/h)'}
+    check: {op: max, limit: 0.45}
+    source: GB/T 51350-2019 第6.2.8条，按示例条件转述

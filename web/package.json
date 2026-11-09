@@ -1,0 +1,9 @@
+{
+  "name": "residential-ventilation-ui",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {"build": "vite build", "test": "vitest run"},
+  "dependencies": {"vue": "3.5.13", "element-plus": "2.9.4", "echarts": "5.6.0", "yaml": "2.7.0"},
+  "devDependencies": {"vite": "6.1.0", "vitest": "3.0.5", "@vitejs/plugin-vue": "5.2.1"}
+}

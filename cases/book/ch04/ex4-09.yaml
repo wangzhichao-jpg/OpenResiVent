@@ -1,0 +1,23 @@
+meta:
+  id: ex4-09
+  title: 卧室送风末端噪声预测
+  book_ref: 书稿4.5节；设备及声学参数为假设示例
+  rules: [GB55016-2021]
+module: duct_noise
+input:
+  reference_flow_m3_s: 0.0277777777777778
+  flows_m3_s: [0.0138888888888889, 0.0208333333333333, 0.0277777777777778]
+  fan_power_db: [60, 62, 64, 62, 58, 53, 48, 42]
+  flow_exponent: 5
+  stages:
+    - {kind: straight, attenuation_db: [1, 2, 3, 4, 5, 6, 7, 8], regenerated_db: [32, 34, 36, 38, 37, 34, 30, 25]}
+    - {kind: bend, attenuation_db: [1, 2, 3, 4, 5, 5, 4, 3], regenerated_db: [30, 32, 35, 38, 38, 35, 32, 27]}
+    - {kind: silencer, attenuation_db: [3, 5, 8, 12, 15, 16, 14, 10], regenerated_db: [28, 30, 33, 35, 36, 34, 30, 25]}
+  terminal_reflection_db: [6, 5, 4, 3, 2, 1, 1, 1]
+  diffuser_regenerated_db: [25, 28, 31, 34, 35, 33, 30, 25]
+  directivity: 2
+  distance_m: 2
+  room_constant_m2: 20
+  target_db: 33
+  target_kind: GB 55016-2021 第2.1.4条表2.1.4 睡眠空间设备声
+output: {markdown: true}

@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+dist/
+node_modules/
+
+# 构建产物（书稿预览、算例输出）
+build/
+out/
+
+# 红线：未公开材料与未去标识数据不得入库
+src/openresivent/rules/packs/private/
+data/raw_private/
+
+# 编辑器与系统
+.vscode/
+.idea/
+.DS_Store
+*.swp
+
+# aider
+.aider*

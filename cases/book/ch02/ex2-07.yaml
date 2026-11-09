@@ -1,0 +1,4 @@
+meta: {id: ex2-07, title: 单双开口热压及风热联合, book_ref: '书稿2.3.3；参数为假设示例', rules: []}
+module: natural_ventilation
+input: {cd: 0.6, single_area_m2: 1.0, opening_height_m: 1.5, a1_m2: 0.5, a2_m2: 0.5, height_m: 3.0, delta_t_k: 10, mean_t_k: 288.15, inside_t_k: 293.15, outside_t_k: 283.15, wind_m_s: 3, cp1: 0.6, cp2: -0.3}
+output: {markdown: true}

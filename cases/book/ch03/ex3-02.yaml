@@ -1,0 +1,4 @@
+meta: {id: ex3-02, title: 竖向空间热压通风, book_ref: '书稿3.3；参数为假设示例', rules: []}
+module: stack_ventilation
+input: {a1_m2: 0.5, a2_m2: 0.5, cd: 0.6, height_m: 9, inside_t_k: 293.15, outside_t_k: 283.15}
+output: {markdown: true}

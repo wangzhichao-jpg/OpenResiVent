@@ -1,0 +1,4 @@
+meta: {id: ex3-04, title: 风帽指标与正压应用, book_ref: '书稿3.4.4；指标风量为假设，阈值为论文读图', rules: []}
+module: turbine_cowl
+input: {turbine_m3_s: 0.12, natural_m3_s: 0.10, static_m3_s: 0.11, pressure_pa: 10, wind_m_s: 5, paper11_pressure_pa: -5, angle_deg: 40}
+output: {markdown: true}

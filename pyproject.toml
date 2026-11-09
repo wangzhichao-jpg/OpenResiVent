@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "openresivent"
+dynamic = ["version"]
+description = "住宅通风计算与校核"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+dependencies = ["pydantic>=2", "pyyaml", "numpy", "scipy", "jinja2", "typer", "python-docx>=1.1,<2", "openpyxl>=3.1,<4", "fastapi>=0.115,<1", "uvicorn>=0.30,<1"]
+
+[project.optional-dependencies]
+dev = ["ruff", "pytest", "pytest-cov", "httpx>=0.27,<1", "mkdocs==1.6.1", "mkdocs-material==9.8.1", "hatchling>=1.25"]
+desktop = ["pywebview>=5,<7"]
+bundle = ["pyinstaller>=6,<7"]
+
+[project.scripts]
+resivent = "openresivent.cli:app"
+
+[tool.hatch.version]
+path = "src/openresivent/__init__.py"
+
+[tool.hatch.build.hooks.custom]
+path = "packaging/hatch_build.py"
+
+[tool.hatch.build.targets.sdist]
+exclude = ["/AGENTS.md", "/docs/management", "/docs/plan", "/docs/inventory", "/book.lock"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"data/co2_activity.yaml" = "openresivent/data/co2_activity.yaml"
+"data/pah_tef.yaml" = "openresivent/data/pah_tef.yaml"
+"data/hcho_emission.yaml" = "openresivent/data/hcho_emission.yaml"
+"data/exposure_defaults.yaml" = "openresivent/data/exposure_defaults.yaml"
+"data/param_meta.yaml" = "openresivent/data/param_meta.yaml"
+"data/duct_fittings.yaml" = "openresivent/data/duct_fittings.yaml"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+extend-exclude = ["docs/management/tools"]

@@ -1,0 +1,4 @@
+meta: {id: ex4-10, title: 室外新风口布置校核, book_ref: '新增示例；几何条件为假设', rules: []}
+module: outdoor_intake
+input: {source: water_heater, horizontal_m: 1.2, vertical_m: 0, intake_below: false, layout: horizontal, same_direction: true, ground_m: 1.8, green: false}
+output: {markdown: true}

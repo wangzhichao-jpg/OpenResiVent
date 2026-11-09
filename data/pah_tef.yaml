@@ -1,0 +1,18 @@
+# 各项为无量纲毒性当量因子；用于示例前须核对具体版本及适用性。
+entries:
+  - {id: Nap, value: 0.001, source: 'Nisbet & LaGoy (1992), Regul Toxicol Pharmacol 16:290–300；Yang 等 (2024) 第8–9页式3', license: '数值事实'}
+  - {id: Acy, value: 0.001, source: 'Nisbet & LaGoy (1992)；Yang 等 (2024) 第8–9页式3', license: '数值事实'}
+  - {id: Ace, value: 0.001, source: 'Nisbet & LaGoy (1992)；Yang 等 (2024) 第8–9页式3', license: '数值事实'}
+  - {id: Flr, value: 0.001, source: 'Nisbet & LaGoy (1992)；Yang 等 (2024) 第8–9页式3', license: '数值事实'}
+  - {id: Phn, value: 0.001, source: 'Nisbet & LaGoy (1992)；Yang 等 (2024) 第8–9页式3', license: '数值事实'}
+  - {id: Fla, value: 0.001, source: 'Nisbet & LaGoy (1992)；Yang 等 (2024) 第8–9页式3', license: '数值事实'}
+  - {id: Pyr, value: 0.001, source: 'Nisbet & LaGoy (1992)；Yang 等 (2024) 第8–9页式3', license: '数值事实'}
+  - {id: Ant, value: 0.01, source: 'Nisbet & LaGoy (1992)；Yang 等 (2024) 第8–9页式3', license: '数值事实'}
+  - {id: Bghip, value: 0.01, source: 'Nisbet & LaGoy (1992)；Yang 等 (2024) 第8–9页式3', license: '数值事实'}
+  - {id: Chr, value: 0.01, source: 'Nisbet & LaGoy (1992)；Yang 等 (2024) 第8–9页式3 Chy', license: '数值事实'}
+  - {id: BaA, value: 0.1, source: 'Nisbet & LaGoy (1992)；Yang 等 (2024) 第8–9页式3', license: '数值事实'}
+  - {id: BbF, value: 0.1, source: 'Nisbet & LaGoy (1992)；Yang 等 (2024) 第8–9页式3', license: '数值事实'}
+  - {id: BkF, value: 0.1, source: 'Nisbet & LaGoy (1992)；Yang 等 (2024) 第8–9页式3', license: '数值事实'}
+  - {id: InP, value: 0.1, source: 'Nisbet & LaGoy (1992)；Yang 等 (2024) 第8–9页式3', license: '数值事实'}
+  - {id: BaP, value: 1.0, source: 'Nisbet & LaGoy (1992)；Yang 等 (2024) 第8–9页式3', license: '数值事实'}
+  - {id: DbiA, value: 1.0, source: 'Nisbet & LaGoy (1992)；Yang 等 (2024) 第8–9页式3', license: '数值事实'}

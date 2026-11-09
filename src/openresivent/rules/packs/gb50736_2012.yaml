@@ -1,0 +1,9 @@
+id: GB50736-2012
+version: '2012'
+rules:
+  - id: GB50736-2012:3.0.6:2
+    title: 居住建筑宜按换气次数法计算最小新风量
+    strength: 宜
+    params: {unit: m3/s, tiers_per_h: [[10, 0.7], [20, 0.6], [50, 0.5], [null, 0.45]]}
+    check: {op: min, limit: null}
+    source: GB 50736-2012 第3.0.6条第2款及表3.0.6-2，转述；限值须按输入计算

@@ -1,0 +1,32 @@
+unit: L/(h·人)
+assumptions:
+  age_group: 18-30岁
+  sex: male
+  weight_kg: 70
+  temperature_K: 293.15
+  pressure_Pa: 101325
+  respiratory_quotient: 0.85
+  source: Persily & de Jonge, Indoor Air 27(5), 868–879 (2017), DOI 10.1111/ina.12383；Schofield 基础代谢式；活动 met 取值按 参考说明，待核对原文
+  license: 数值事实；公式与书目信息，未复制原文
+entries:
+  - id: sedentary
+    value: 18
+    met: 1.3
+    source: 书稿第2.3.1、2.3.2节，示例默认值；不同于公式计算的个体估算值
+    license: 数值事实；书稿示例
+  - id: sleeping
+    met: 0.95
+    source: Persily & de Jonge (2017)，活动代谢倍数按 参考说明，待原文复核
+    license: 数值事实
+  - id: quiet_sitting
+    met: 1.0
+    source: Persily & de Jonge (2017)，活动代谢倍数按 参考说明，待原文复核
+    license: 数值事实
+  - id: light_housework
+    met: 2.0
+    source: Persily & de Jonge (2017)，活动代谢倍数按 参考说明，待原文复核
+    license: 数值事实
+  - id: moderate_activity
+    met: 3.0
+    source: Persily & de Jonge (2017)，活动代谢倍数按 参考说明，待原文复核
+    license: 数值事实

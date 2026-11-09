@@ -1,0 +1,19 @@
+meta:
+  id: ex3-01
+  title: 两区域穿堂风
+  book_ref: 书稿3.1.4.2表3-12
+  rules: []
+module: network
+input:
+  pressure_pa: 101325
+  wind_speed_m_s: 3.0
+  zones:
+    south: {temperature_k: 293.15, density_kg_m3: 1.2, fixed: true}
+    living: {temperature_k: 293.15, density_kg_m3: 1.2, volume_m3: 60}
+    bedroom: {temperature_k: 293.15, density_kg_m3: 1.2, volume_m3: 60}
+    north: {temperature_k: 293.15, density_kg_m3: 1.2, fixed: true}
+  links:
+    - {start: south, end: living, area_m2: 1.5, discharge: 0.6, reference_density: 1.2, cp: 0.6, wind_density: 1.2}
+    - {start: living, end: bedroom, area_m2: 1.6, discharge: 0.6, reference_density: 1.2}
+    - {start: bedroom, end: north, area_m2: 1.2, discharge: 0.6, reference_density: 1.2, cp: 0.3, wind_density: 1.2}
+output: {markdown: true}

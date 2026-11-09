@@ -1,0 +1,13 @@
+meta:
+  id: ex6-04
+  title: 风管法及风速仪法测量
+  book_ref: 书稿6.3.1–6.3.2
+module: airflow_measure
+input:
+  duct_velocity_m_s: 2.0
+  duct_area_m2: 0.05
+  terminal_velocity_m_s: 2.0
+  terminal_area_m2: 0.05
+  terminal_coefficient: 0.8
+  assumptions: 示例值，需作者确认；面积与流量系数不得重复折减
+output: {markdown: true}

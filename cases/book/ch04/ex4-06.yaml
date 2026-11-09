@@ -1,0 +1,13 @@
+meta:
+  id: ex4-06
+  title: 热回收分档选型初筛
+  book_ref: 书稿4.4；示例 A9 给定示例，额定工况待核
+  rules: [GBT21087-2020, GBT51350-2019]
+module: recovery_assess
+input:
+  sensible_heat: 0.74
+  sensible_cool: 0.66
+  total_heat: 0.61
+  total_cool: 0.56
+  specific_power_w_per_m3h: 0.46
+output: {markdown: true}

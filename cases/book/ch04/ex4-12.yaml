@@ -1,0 +1,11 @@
+meta:
+  id: ex4-12
+  title: 芯体维护与更换建议
+  book_ref: 书稿4.4.2；效率为假设示例
+  rules: []
+module: recovery_maintenance
+input:
+  core: cellulose
+  initial_latent: 0.8
+  after_clean_latent: 0.63
+output: {markdown: true}

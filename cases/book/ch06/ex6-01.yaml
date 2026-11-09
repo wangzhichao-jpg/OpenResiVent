@@ -1,0 +1,11 @@
+meta:
+  id: ex6-01
+  title: 示踪气体浓度衰减示例
+  book_ref: 书稿6.2.1及6.2.5
+  rules: []
+module: tracer
+input:
+  background: 400
+  two_point: {initial: 3000, final: 1500, elapsed_s: 1800}
+  csv: ex6-01.csv
+output: {markdown: true}

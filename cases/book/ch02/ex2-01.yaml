@@ -1,0 +1,13 @@
+meta:
+  id: ex2-01
+  title: 三口之家二氧化碳浓度法
+  book_ref: 书稿2.3.2式2-4
+  rules: [JGJT440-2018]
+module: co2
+input:
+  occupants: 3
+  co2_l_h_person: 18
+  co2_outdoor_ppm: 400
+  co2_limit_ppm: 1000
+output:
+  markdown: true

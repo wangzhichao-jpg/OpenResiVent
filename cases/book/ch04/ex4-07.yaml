@@ -1,0 +1,4 @@
+meta: {id: ex4-07, title: 广州机械通风新风冷负荷比较, book_ref: 书稿4.6.2；室内状态及空间体积为假设, rules: []}
+module: natural_cooling
+input: {volume_m3: 306.6, mechanical_ach: 0.8, indoor_t_k: 299.15, indoor_humidity_ratio: 0.0105, dry_density: 1.2, enthalpy_efficiency: 0.6}
+output: {markdown: true}

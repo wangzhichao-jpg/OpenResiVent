@@ -1,0 +1,15 @@
+id: GBT18883-2022
+version: '2022'
+rules:
+  - id: GBT18883-2022:4.2:outdoor_air
+    title: 人均新风量
+    strength: 应
+    params: {unit: 'm3/(s·人)'}
+    check: {op: min, limit: 0.008333333333333333}
+    source: GB/T 18883-2022 第4.2条、表1，转述
+  - id: GBT18883-2022:4.2:co2
+    title: 二氧化碳一小时平均体积分数
+    strength: 应
+    params: {unit: '1', averaging_s: 3600}
+    check: {op: max, limit: 0.001}
+    source: GB/T 18883-2022 第4.2条、表1，转述

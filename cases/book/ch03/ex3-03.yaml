@@ -1,0 +1,19 @@
+meta:
+  id: ex3-03
+  title: 气密性与自然渗透换气次数
+  book_ref: 书稿 3.5.2；算例气象、风压及缝隙分布均为假设，非实测住户
+  rules: []
+module: infiltration
+input:
+  volume_m3: 250
+  n50_per_h: 1.0
+  exponent: 0.65
+  inside_temperature_k: 293.15
+  outside_temperature_k: 283.15
+  absolute_pressure_pa: 101325
+  height_m: 3
+  cp_windward: 0.6
+  cp_leeward: -0.3
+  wind_speed_m_s: 3
+  wind_sensitivity_m_s: [1, 2, 3, 4, 5]
+output: {markdown: true}

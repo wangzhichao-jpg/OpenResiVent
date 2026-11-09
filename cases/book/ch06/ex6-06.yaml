@@ -1,0 +1,4 @@
+meta: {id: ex6-06, title: 产品检测数据计算, book_ref: '示例数据为假设，需作者确认', rules: [JGJT440-2018]}
+module: product_test
+input: {supply_mass_kg_s: 0.05, exhaust_mass_kg_s: 0.04, outdoor_t_k: 273.15, exhaust_t_k: 293.15, supply_t_k: 288.15, outdoor_w: 0.002, exhaust_w: 0.008, supply_w: 0.005, fan_flow_m3_h: 180, fan_pressure_pa: 80, fan_power_w: 45, speed_ratio: 1.1, test_flow_m3_h: 150, test_power_w: 45, pm25_efficiency: 0.9, kind: dual}
+output: {markdown: true}

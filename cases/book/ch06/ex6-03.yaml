@@ -1,0 +1,12 @@
+meta:
+  id: ex6-03
+  title: 恒定注入与恒定浓度法
+  book_ref: 书稿6.2.3、6.3.3
+module: injection
+input:
+  injection_l_min: 0.5
+  controlled_injection_l_min: 0.5
+  indoor_ppm: 700
+  outdoor_ppm: 400
+  assumptions: 示例值，需作者确认；注入气体和浓度均在相同温压下，采用 示例 A13
+output: {markdown: true}

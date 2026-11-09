@@ -1,0 +1,16 @@
+meta:
+  id: ex5-01
+  title: 百米竖井热压与中和面
+  book_ref: 书稿5.2.1；开口面积为自拟示例
+  rules: []
+module: network
+input:
+  pressure_pa: 101325
+  zones:
+    outside: {temperature_k: 263.15, fixed: true}
+    shaft: {temperature_k: 293.15, volume_m3: 1000}
+  links:
+    - {start: outside, end: shaft, area_m2: 1, discharge: 0.6, reference_density: 1.2, height_m: 0}
+    - {start: shaft, end: outside, area_m2: 1, discharge: 0.6, reference_density: 1.2, height_m: 100}
+  stack: {inside: shaft, outside: outside, height_m: 100}
+output: {markdown: true}

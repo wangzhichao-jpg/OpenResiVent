@@ -1,0 +1,21 @@
+meta:
+  id: ex1-01
+  title: 典型三居室中美欧新风量对比
+  book_ref: 书稿1.4.2；户型为自拟示例
+  rules: [JGJT440-2018, GBT18883-2022]
+module: ventrate
+input:
+  area_m2: 75
+  floor_area_m2: 90
+  height_m: 2.8
+  occupants: 3
+  outdoor_ppm: 400
+  limit_ppm: 1000
+  limit_ppm_source: GB/T 18883-2022 第4.2条、表1
+  allowance: 0.05
+  bedrooms:
+    - {area_m2: 15, height_m: 2.8, occupants: 2, activity: sedentary}
+    - {area_m2: 10, height_m: 2.8, occupants: 1, activity: sedentary}
+    - {area_m2: 10, height_m: 2.8, occupants: 0, activity: sedentary}
+  living: {area_m2: 24, height_m: 2.8}
+output: {markdown: true}

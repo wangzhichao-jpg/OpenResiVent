@@ -1,0 +1,163 @@
+noise_room_thompson:
+  value_db: 29
+  tolerance_db: 0.5
+  source: 'HVAC Acoustic Fundamentals, Application Guide AG 31-010, 第35页，63 Hz、5 ft 风机盘管例题，Thompson 方程'
+noise_energy_benchmarks:
+  - {levels_db: [40, 40], value_db: 43, source: 'HVAC Acoustic Fundamentals, AG 31-010，第6页，等声级叠加示例；原文四舍五入到1 dB'}
+  - {levels_db: [80, 82, 84, 93, 72], value_db: 94, source: 'HVAC Acoustic Fundamentals, AG 31-010，第6页，五声源叠加示例；原文四舍五入到1 dB'}
+P1_cases:
+  ex1-01: {value: 27.5, unit: L/s, source: '示例 B02；ASHRAE公式独立代入'}
+  ex2-01: {value: 90.0, unit: m3/h, source: '示例 B01；54 L/h 除以600 ppm'}
+  ex2-03: {value: 194.0, unit: m3/h, source: '三居室配置按 参考说明 分房间解析求和，详见 示例 第2次验收'}
+  ex6-01: {value: 1.7204025304462232, unit: h-1, source: '示例 B03；ln(2600/1100)/0.5'}
+  ex2-02: {value: 17.142857142857, unit: m3/h, source: '示例 A7；1.2 mg/h 除以 0.07 mg/m3'}
+  ex2-04: {value: 2.8802193864321466, unit: h, source: '示例 A8；ln(980/55)'}
+  ex2-06: {value: 1.25, unit: ng/m3, source: '示例 A10；1×1+2×0.1+5×0.01'}
+  ex6-02: {value: 0.5, unit: '1', source: '书稿6.1式6-2；完全混合算例'}
+  ex6-03: {value: 100, unit: m3/h, source: '示例 A13；0.5 L/min 除以300 ppm'}
+  ex6-04: {value: 360, unit: m3/h, source: '书稿6.3式6-18；2 m/s乘0.05 m2'}
+  ex6-05: {value: -0.075, unit: '1', source: '示例 A15；185/200-1'}
+M0_saturation:
+  unit: Pa
+  source_liquid: 'IAPWS-95 Wagner & Pruß, J. Phys. Chem. Ref. Data 31, 387 (2002), NIST Chemistry WebBook；参考点依 参考说明'
+  source_ice: 'IAPWS 2011 Wagner, Riethmann, Feistel & Harvey, J. Phys. Chem. Ref. Data 40, 043103 (2011)；参考点依 参考说明'
+  points:
+    - {temperature_c: 20, pressure_pa: 2339.2, phase: liquid}
+    - {temperature_c: 25, pressure_pa: 3169.9, phase: liquid}
+    - {temperature_c: 40, pressure_pa: 7384.9, phase: liquid}
+    - {temperature_c: 60, pressure_pa: 19946, phase: liquid}
+    - {temperature_c: 100, pressure_pa: 101418, phase: liquid}
+    - {temperature_c: 0.01, pressure_pa: 611.657, phase: triple}
+    - {temperature_c: -10, pressure_pa: 259.90, phase: ice}
+    - {temperature_c: -20, pressure_pa: 103.26, phase: ice}
+B01:
+  value: 90
+  unit: m3/h
+  source: 书稿2.3.2式2-4；三人各18 L/h，400至1000 ppm
+B02:
+  value: 27.5
+  unit: L/s
+  source: 示例条件A5；ASHRAE 62.2-2025，90 m2，三居室
+B03:
+  value: 1.7204025304462232
+  unit: h-1
+  source: 书稿6.2.1；ln(2600/1100)/0.5 h
+B04:
+  value: 134.663062
+  unit: Pa
+  source: 示例条件A10；理想气体，g=9.81 m/s2，R=287.055 J/(kg K)，101325 Pa，293.15 K及263.15 K，高差100 m；2026-11-09 按上游密度修正改正，原值有误
+  lower_opening_pa: 63.700494
+  upper_opening_pa: 70.962568
+  neutral_height_m: 47.303613
+P102_A06:
+  values: [19.661176678641073, 66.1892265119685, 145.24228561143244]
+  unit: 'm3/(h Pa^n), Pa, Pa'
+  source: '示例 A6；幂律 n50=1/0.6 h-1、V=250 m3'
+P102_A07:
+  values: [200, 210]
+  unit: 'm3/h, Pa'
+  source: '示例 A7 风机和系统曲线交点'
+P102_A08:
+  values: [3.141592653589793, 1.7317646371776032]
+  unit: 'm3/h'
+  source: '示例 A8 250 Pa 和 100 Pa 反向漏风'
+P102_A09:
+  value: 380.521852348
+  unit: 'ug/m3'
+  source: '示例 A9 单区指数稀释解析解'
+P102_A10:
+  value: 40.0
+  unit: 'ug/m3'
+  source: '示例 A10 两区串联稳态质量平衡'
+B05:
+  value: 0.5345224838248488
+  unit: '1'
+  source: '开发方案8.2 B05；二次曲线 sqrt(1-200/280)，书稿四舍五入53.5%'
+P304_A06:
+  value: 6.0
+  unit: s
+  source: '示例 A6；活塞流通道长度3 m、速度0.5 m/s，L/U解析解'
+P302_A05:
+  value: 0.371454
+  unit: kg/s
+  source: '示例 A5；双孔各0.5 m2，Cd=0.6，热压高度3 m，室内293.15 K、室外283.15 K'
+P302_A08_A09:
+  values: [0.75, 0.9375]
+  unit: '1'
+  source: '示例 A8-A9；等流与非等流最小质量流量归一化显热效率'
+P302_A10:
+  values: [0.30, 1080]
+  unit: 'W/(m3/h), W/(m3/s)'
+  source: '示例 A10；45 W、150 m3/h'
+P302_A11:
+  values: [3.0, 2.9]
+  unit: 'm3/(W h)'
+  source: '示例 A11；双向流，150 m3/h、45 W、效率90%及87%'
+P302_A12:
+  values: [198, 96.8, 59.895]
+  unit: 'm3/h, Pa, W'
+  source: '示例 A12；风机相似定律，转速比1.1'
+P301_A05:
+  value: 0.142923
+  unit: m3/s
+  source: '示例 A5；CIBSE单开口近似，Cd=0.6、A=1 m2、h=1.5 m、温差10 K、均温288.15 K'
+P301_A06:
+  values: [0.353553, 0.303185]
+  unit: 'm2, m3/s'
+  source: '示例 A6；两个0.5 m2开口、间距3 m、Cd=0.6、温差10 K、均温288.15 K'
+P301_A08:
+  values: [1.2, 0.090909]
+  unit: '1'
+  source: '示例 A8；风帽/自然开口和相对静态风帽增率'
+P204_A06_A07:
+  values: [26.112594, 26.022859]
+  unit: g
+  source: '示例 A6–A7；固定风量、滤网阻力翻倍，论文1式1与论文2式9'
+P204_A08:
+  value: 67.162020
+  unit: d
+  source: '示例 A8；PM10=90 ug/m3、180 m3/h、全部捕集、固定风量、论文1式1'
+P204_A10:
+  value: 12.96
+  unit: g
+  source: '示例 A10；0.09 mg/m3、效率0.8、180 m3/h、1000 h'
+P203_A06:
+  values: [1006.0, 251.5]
+  unit: W
+  source: '示例 A6；150 m3/h、密度1.2 kg/m3、定压比热1006 J/(kg K)、温差20 K，回收效率0/0.75'
+P203_A07:
+  values: [33.607720, 1680.386, 672.1544]
+  unit: 'kJ/kg, W, W'
+  source: '示例 A7；湿空气焓差与焓效率'
+P203_A08:
+  values: [8812.56, 2203.14]
+  unit: kWh
+  source: '示例 A8；8760 h 恒定显热负荷'
+P203_A09:
+  value: 591.3
+  unit: kWh
+  source: '示例 A9；0.45 W/(m3/h)、150 m3/h、8760 h'
+P203_A10:
+  value: 100.6
+  unit: W
+  source: '示例 A10；22 ℃室外、24 ℃室内、旁通自然冷却'
+P202_A05:
+  value: 7.416836
+  unit: Pa
+  source: '示例 A5；D=0.16 m、L=10 m、Q=200 m3/h、粗糙度 0.15 mm、密度 1.2 kg/m3、黏度 1.8e-5 Pa s'
+P202_A07_A08:
+  values: [848.528137, 2333.066651, 2414.953416]
+  unit: m3/h
+  source: '示例 A7–A8；书稿5.3.1三类风机额定点和二次曲线解析解'
+P202_A09:
+  values: [507.092553, 128.571429]
+  unit: 'm3/h, Pa'
+  source: '示例 A9；普通型风机与二次系统阻力交点解析解'
+P202_A10:
+  values: [4.712389, 2.597647]
+  unit: m3/h
+  source: '示例 A10；250 Pa单位面积反向漏风率150 m3/(h m2)，直径0.2 m，指数0.65'
+B06:
+  value: 1.380756345
+  unit: m3/s
+  source: 书稿3.1.4.2表3-12，按式3-9未舍入的串联孔口解析解，风速3 m/s

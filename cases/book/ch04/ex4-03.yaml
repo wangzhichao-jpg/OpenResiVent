@@ -1,0 +1,16 @@
+meta:
+  id: ex4-03
+  title: 四城市热回收效率与全年新风负荷
+  book_ref: 书稿4.4.1及4.6；气象为公开 TMYx，设备参数为假设
+  rules: []
+module: energy_erv
+input:
+  flow_m3_h: 150
+  heating_temperature_c: 20
+  cooling_temperature_c: 26
+  heating_humidity_ratio: 0.006
+  cooling_humidity_ratio: 0.0105
+  sensible_efficiency: 0.75
+  enthalpy_efficiency: 0.60
+  bypass: none
+output: {markdown: true}

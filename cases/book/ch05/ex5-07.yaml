@@ -1,0 +1,25 @@
+meta:
+  id: ex5-07
+  title: 新风系统与油烟机压差耦合及补风联锁
+  book_ref: 拟新增 5.5；全部设备与户型为假设示例，非实测
+  rules: []
+module: dwelling_pressure
+input:
+  bedrooms: 3
+  volume_m3: 250
+  n50_per_h: [1.0, 0.6]
+  kitchen_open: false
+  door_gap_area_m2: 0.015
+  transfer_area_m2: 0.005
+  density_kg_m3: 1.2
+  hood_m3_h: 300
+  fresh_supply_m3_h: 150
+  fresh_exhaust_m3_h: 127.5
+  opening_area_m2: 0.02
+  mechanical_makeup_m3_h: 150
+  hood_room: kitchen
+  supply_room: living
+  exhaust_room: bath
+  bath_fan_room: bath
+  threshold_pa: 15
+output: {markdown: true}

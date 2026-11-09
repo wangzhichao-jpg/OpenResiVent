@@ -1,0 +1,9 @@
+base_case: makeup_base.yaml
+method: factorial
+factors:
+  n50_per_h: {values: [0.6, 1.0, 1.5, 3.0]}
+  hood_m3_h: {values: [250, 300, 400]}
+  bedrooms: {values: [2, 3]}
+metrics:
+  mechanical_m3_s: mechanical.value
+  opening_m2: opening.value

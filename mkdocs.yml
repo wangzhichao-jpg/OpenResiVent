@@ -1,0 +1,14 @@
+site_name: 住宅通风计算手册
+docs_dir: docs/site
+site_dir: build/site
+theme:
+  name: material
+  language: zh
+nav:
+  - 快速开始: index.md
+  - 用户手册: user.md
+  - 测评说明: 内测说明.md
+  - 桌面版: desktop.md
+  - 理论手册: theory.md
+  - 验证报告: validation.md
+  - 决策记录: decisions.md

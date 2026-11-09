@@ -1,0 +1,22 @@
+meta:
+  id: ex6-05
+  title: 住宅新风验收双轨演示
+  book_ref: JGJ/T 440-2018 7.3.4–7.3.7；GB 55015-2021 6.3.13
+module: acceptance_synthetic
+input:
+  start: '2026-01-01T00:00:00'
+  seed: 440
+  worst_day_indexes: [25, 26, 27, 28, 29]
+  outdoor_high_ug_m3: 100
+  outdoor_base_ug_m3: 30
+  indoor_base_ug_m3: 40
+  noise_std_ug_m3: 0.2
+  co2_ppm: 800
+  spot_duration_minutes: 45
+  total_design_m3_h: 200
+  total_measured_m3_h: 185
+  terminal_design_m3_h: 50
+  terminal_measured_m3_h: 60
+  total_homes: 100
+  assumptions: 合成数据与示例值，需作者确认；60分钟间隔以内点测值不能代替不同标准的时间窗均值
+output: {markdown: true}

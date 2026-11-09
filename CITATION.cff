@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+message: 引用信息草稿，正式发布前核对。
+title: OpenResiVent 住宅通风计算软件
+type: software
+authors:
+  - name: 建科环能科技有限公司
+license: Apache-2.0

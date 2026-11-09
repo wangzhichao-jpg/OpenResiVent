@@ -1,0 +1,18 @@
+meta:
+  id: ex4-01
+  title: 四城市 CAV 与 PID 年度比较
+  book_ref: 书稿4.3.3；论文1第3、5、9、13页；风机曲线等为假设
+  rules: []
+module: energy_control
+input:
+  flow_m3_h: 180
+  heating_temperature_c: 20
+  cooling_temperature_c: 26
+  heating_humidity_ratio: 0.006
+  cooling_humidity_ratio: 0.0105
+  sensible_efficiency: 0.75
+  enthalpy_efficiency: 0.60
+  bypass: none
+  pm25_ug_m3: 45
+  fan_model: paper_digitized
+output: {markdown: true}

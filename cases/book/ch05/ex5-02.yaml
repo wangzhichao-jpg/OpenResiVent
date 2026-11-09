@@ -1,0 +1,11 @@
+meta:
+  id: ex5-02
+  title: 油烟机性能曲线与背压
+  book_ref: 书稿 5.3.1 式 5-5；理想二次曲线
+  rules: []
+module: fan_curve
+input:
+  free_flow_m3_h: 400
+  shutoff_pressure_pa: 280
+  back_pressure_pa: 200
+output: {markdown: true}

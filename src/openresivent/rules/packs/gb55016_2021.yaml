@@ -1,0 +1,15 @@
+id: GB55016-2021
+version: '2021'
+rules:
+  - id: GB55016-2021:2.1.4:sleep
+    title: 室内设备噪声睡眠空间限值
+    strength: 应
+    params: {unit: 'dB(A)', applies_to: 睡眠空间, measurement: 等效声级}
+    check: {op: max, limit: 33.0}
+    source: GB 55016-2021 第2.1.4条、表2.1.4，数值转述
+  - id: GB55016-2021:2.1.4:living
+    title: 室内设备噪声日常生活空间限值
+    strength: 应
+    params: {unit: 'dB(A)', applies_to: 日常生活空间, measurement: 等效声级}
+    check: {op: max, limit: 40.0}
+    source: GB 55016-2021 第2.1.4条、表2.1.4，数值转述

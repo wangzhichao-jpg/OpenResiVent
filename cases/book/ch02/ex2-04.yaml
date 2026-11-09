@@ -1,0 +1,16 @@
+meta:
+  id: ex2-04
+  title: 烹饪后颗粒物非稳态稀释
+  book_ref: 书稿2.4.2式2-18
+  rules: []
+module: transient
+input:
+  volume_m3: 50
+  flow_m3_h: 50
+  outdoor_ug_m3: 20
+  initial_ug_m3: 1000
+  generation_ug_h: 0
+  target_ug_m3: 75
+  elapsed_h: 1
+  assumption: 示例值，需作者确认；目标参数依 示例 A8
+output: {markdown: true}

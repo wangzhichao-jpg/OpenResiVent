@@ -1,0 +1,15 @@
+meta:
+  id: ex4-05
+  title: 冷角结霜阈值及防冻策略
+  book_ref: 书稿4.4.3；李剑东等2024第5页及第11页图10
+  rules: []
+module: recovery_frost
+input:
+  outdoor_c: -14
+  indoor_c: 20
+  extract_rh: 0.50
+  outdoor_rh: 0.77
+  flow_m3_h: 400
+  sensible_efficiency: 0.75
+  duration_h: 1
+output: {markdown: true}

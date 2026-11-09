@@ -1,0 +1,75 @@
+# 参数展示元数据；自拟符号，CC BY 4.0。
+# dimensionless 明确区分无量纲与有量纲；digits 为有效数字。
+area_m2: {name: 面积, symbol: A, unit: m², digits: 3}
+floor_area_m2: {name: 建筑面积, symbol: A_f, unit: m², digits: 3}
+height_m: {name: 净高, symbol: h, unit: m, digits: 3}
+occupants: {name: 人数, symbol: N, unit: 人, digits: 3}
+outdoor_ppm: {name: 室外二氧化碳浓度, symbol: C_0, unit: ppm, digits: 3}
+limit_ppm: {name: 二氧化碳浓度限值, symbol: 'C_{lim}', unit: ppm, digits: 3}
+co2_outdoor_ppm: {name: 室外二氧化碳浓度, symbol: C_0, unit: ppm, digits: 3}
+co2_limit_ppm: {name: 二氧化碳浓度限值, symbol: 'C_{lim}', unit: ppm, digits: 3}
+co2_l_h_person: {name: 人均二氧化碳散发量, symbol: m, unit: L/(h·人), digits: 3}
+allowance: {name: 风量附加系数, symbol: f, unit: '—', dimensionless: true, digits: 3}
+activity: {name: 活动状态, symbol: a, unit: '—', dimensionless: true, digits: 3}
+hcho_outdoor_mg_m3: {name: 室外甲醛浓度, symbol: 'C_{0}', unit: mg/m³, digits: 3}
+hcho_limit_mg_m3: {name: 甲醛浓度限值, symbol: 'C_{lim}', unit: mg/m³, digits: 3}
+hcho_example_ef_mg_m2_h: {name: 甲醛散发率对照值, symbol: 'E_{2}', unit: mg/(m²·h), digits: 3}
+ef_mg_m2_h: {name: 甲醛散发率, symbol: E, unit: mg/(m²·h), digits: 3}
+volume_m3: {name: 房间容积, symbol: V, unit: m³, digits: 3}
+flow_m3_h: {name: 通风量, symbol: Q, unit: m³/h, digits: 3}
+outdoor_ug_m3: {name: 室外污染物浓度, symbol: C_0, unit: μg/m³, digits: 3}
+initial_ug_m3: {name: 初始污染物浓度, symbol: C_i, unit: μg/m³, digits: 3}
+generation_ug_h: {name: 污染源强, symbol: M, unit: μg/h, digits: 3}
+target_ug_m3: {name: 目标浓度, symbol: C_t, unit: μg/m³, digits: 3}
+elapsed_h: {name: 时间, symbol: t, unit: h, digits: 3}
+BaP: {name: 苯并芘浓度, symbol: 'C_{BaP}', unit: ng/m³, digits: 3}
+BaA: {name: 苯并蒽浓度, symbol: 'C_{BaA}', unit: ng/m³, digits: 3}
+Chr: {name: 屈浓度, symbol: 'C_{Chr}', unit: ng/m³, digits: 3}
+iur_per_ug_m3: {name: 吸入单位风险, symbol: IUR, unit: '(μg/m³)⁻¹', digits: 3}
+hours_day: {name: 每日暴露时间, symbol: ET, unit: h/d, digits: 3}
+days_year: {name: 年暴露天数, symbol: EF, unit: d/a, digits: 3}
+years: {name: 暴露年限, symbol: ED, unit: a, digits: 3}
+averaging_years: {name: 平均寿命, symbol: AT, unit: a, digits: 3}
+background: {name: 背景浓度, symbol: C_0, unit: ppm, digits: 3}
+initial: {name: 初始浓度, symbol: C_i, unit: ppm, digits: 3}
+final: {name: 终点浓度, symbol: C_t, unit: ppm, digits: 3}
+elapsed_s: {name: 测量时间, symbol: t, unit: s, digits: 3}
+nominal_age_s: {name: 名义空气龄, symbol: '\tau_n', unit: s, digits: 3}
+volumes_m3: {name: 区域容积, symbol: V_i, unit: m³, digits: 3}
+ages_s: {name: 局部空气龄, symbol: '\tau_i', unit: s, digits: 3}
+supply_concentration: {name: 送风浓度, symbol: C_s, unit: 体积分数, digits: 3}
+room_concentration: {name: 室内浓度, symbol: C_i, unit: 体积分数, digits: 3}
+exhaust_concentration: {name: 排风浓度, symbol: C_e, unit: 体积分数, digits: 3}
+injection_l_min: {name: 恒定注入量, symbol: q, unit: L/min, digits: 3}
+controlled_injection_l_min: {name: 恒浓度注入量, symbol: q_c, unit: L/min, digits: 3}
+indoor_ppm: {name: 室内示踪浓度, symbol: C_i, unit: ppm, digits: 3}
+duct_velocity_m_s: {name: 风管风速, symbol: v_d, unit: m/s, digits: 3}
+duct_area_m2: {name: 风管面积, symbol: A_d, unit: m², digits: 3}
+terminal_velocity_m_s: {name: 风口风速, symbol: v_t, unit: m/s, digits: 3}
+terminal_area_m2: {name: 风口面积, symbol: A_t, unit: m², digits: 3}
+terminal_coefficient: {name: 风口修正系数, symbol: C_d, unit: '—', dimensionless: true, digits: 3}
+outdoor_high_ug_m3: {name: 室外高浓度, symbol: 'C_{oh}', unit: μg/m³, digits: 3}
+outdoor_base_ug_m3: {name: 室外背景浓度, symbol: 'C_{ob}', unit: μg/m³, digits: 3}
+indoor_base_ug_m3: {name: 室内基准浓度, symbol: C_i, unit: μg/m³, digits: 3}
+noise_std_ug_m3: {name: 浓度波动标准差, symbol: sigma, unit: μg/m³, digits: 3}
+co2_ppm: {name: 二氧化碳浓度, symbol: C_c, unit: ppm, digits: 3}
+spot_duration_minutes: {name: 点检时长, symbol: t, unit: min, digits: 3}
+total_design_m3_h: {name: 设计总风量, symbol: Q_d, unit: m³/h, digits: 3}
+total_measured_m3_h: {name: 实测总风量, symbol: Q_m, unit: m³/h, digits: 3}
+terminal_design_m3_h: {name: 设计风口风量, symbol: q_d, unit: m³/h, digits: 3}
+terminal_measured_m3_h: {name: 实测风口风量, symbol: q_m, unit: m³/h, digits: 3}
+total_homes: {name: 总户数, symbol: N, unit: 户, digits: 3}
+pressure_pa: {name: 压力, symbol: p, unit: Pa, digits: 3}
+wind_speed_m_s: {name: 风速, symbol: v, unit: m/s, digits: 3}
+temperature_k: {name: 温度, symbol: T, unit: K, digits: 4}
+density_kg_m3: {name: 空气密度, symbol: rho, unit: kg/m³, digits: 3}
+fixed: {name: 定压边界, symbol: b, unit: '—', dimensionless: true, digits: 3}
+start: {name: 起始节点, symbol: i, unit: '—', dimensionless: true, digits: 3}
+end: {name: 终止节点, symbol: j, unit: '—', dimensionless: true, digits: 3}
+discharge: {name: 流量系数, symbol: C_d, unit: '—', dimensionless: true, digits: 3}
+reference_density: {name: 参考密度, symbol: rho_0, unit: kg/m³, digits: 3}
+cp: {name: 风压系数, symbol: C_p, unit: '—', dimensionless: true, digits: 3}
+wind_density: {name: 风压计算密度, symbol: rho_w, unit: kg/m³, digits: 3}
+inside: {name: 室内节点, symbol: i, unit: '—', dimensionless: true, digits: 3}
+outside: {name: 室外节点, symbol: o, unit: '—', dimensionless: true, digits: 3}
+

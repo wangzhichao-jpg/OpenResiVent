@@ -1,0 +1,8 @@
+# 计算演示默认参数；非所有人群适用，需使用者和作者核对。
+entries:
+  - {id: hours_day, value: 24, unit: h/d, source: '书稿2.2.3 住宅长期暴露示例；需作者确认', license: 数值事实}
+  - {id: days_year, value: 365, unit: d/year, source: '书稿2.2.3 住宅长期暴露示例；需作者确认', license: 数值事实}
+  - {id: years, value: 30, unit: year, source: '书稿2.2.3 住宅长期暴露示例；需作者确认', license: 数值事实}
+  - {id: averaging_years, value: 70, unit: year, source: '示例 A11 平均期示例；需作者确认', license: 数值事实}
+  - {id: inhalation_m3_day, value: 20, unit: m3/d, source: '假设，需作者确认；传统成人示例，非特定人群实测', license: 自拟示例数值}
+  - {id: body_mass_kg, value: 70, unit: kg, source: '假设，需作者确认；传统成人示例，非特定人群实测', license: 自拟示例数值}

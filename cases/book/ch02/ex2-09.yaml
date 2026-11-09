@@ -1,0 +1,17 @@
+meta:
+  id: ex2-09
+  title: 住宅风管系统设计计算
+  book_ref: 书稿2.5.2；书中未给定数值算例
+  rules: [JGJT440-2018]
+module: duct_network
+input:
+  design_flow_m3_h: 200
+  density_kg_m3: 1.2
+  kinematic_viscosity_m2_s: 0.000015
+  segments:
+    - {name: 干管, length_m: 4, flow_m3_h: 200, roughness_m: 0.00015, diameter_m: 0.16, local_zeta: 0.3, role: main}
+    - {name: 支管甲, length_m: 5, flow_m3_h: 100, roughness_m: 0.00015, diameter_m: 0.125, local_zeta: 0.3, role: branch}
+    - {name: 支管乙, length_m: 3, flow_m3_h: 100, roughness_m: 0.00015, diameter_m: 0.125, local_zeta: 0.3, role: branch}
+  routes: {甲: [干管, 支管甲], 乙: [干管, 支管乙]}
+  assumptions: 假设，需作者确认；风管几何、管件阻力及物性均为示例值
+output: {markdown: true}

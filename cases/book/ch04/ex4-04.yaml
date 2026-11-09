@@ -1,0 +1,12 @@
+meta:
+  id: ex4-04
+  title: 三城市滤网积尘与更换周期
+  book_ref: 书稿4.4.2；孙晓雨等2024第6页式9和第9页表5
+  rules: []
+module: recovery_fouling
+input:
+  flow_m3_h: 350
+  capture_efficiency: 1.0
+  pressure_ratio: 2.0
+  pm10_ug_m3: {beijing: 65, shanghai: 49, harbin: 68}
+output: {markdown: true}

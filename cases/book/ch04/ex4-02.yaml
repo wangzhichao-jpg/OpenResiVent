@@ -1,0 +1,4 @@
+meta: {id: ex4-02, title: 变速风机与末端节流控制比较, book_ref: 书稿4.3.4；模型及效率为假设, rules: []}
+module: vav_comparison
+input: {design_m3_h: 180, dust_g: [0, 5, 10, 15, 20, 25, 30, 35, 40]}
+output: {markdown: true}

@@ -1,0 +1,7 @@
+# 输入值为示范数据，不代表任何产品或标准限值。
+unit: mg/(m²·h)
+entries:
+  - id: example_material
+    value: 0.12
+    source: 示例条件 A7 的 1.2 mg/h 示例，假设材料面积 10 m²，非实测值；需作者确认
+    license: 自拟演示数据，CC BY 4.0

@@ -1,0 +1,19 @@
+OpenResiVent（好房子·通新风）
+Copyright 2026 建科环能科技有限公司
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+Data, documentation and example cases are licensed under the Creative Commons
+Attribution 4.0 International License (CC BY 4.0), unless otherwise stated in
+the corresponding directory.
+
+Third-party notices:
+- python-docx is distributed under the MIT license. Its lxml dependency is
+  distributed under the BSD-3-Clause license (binary distributions also include
+  libxml2/libxslt; preserve their license notices when distributing binaries).
+- src/openresivent/network/nist_base.prj is derived from the NIST CONTAM
+  ContamFactorial 3.4 example DemoCF-NoFlags.prj, downloaded from
+  https://www.nist.gov/document/contamfactorial-34zip. The original is a work
+  of the U.S. federal government; see https://www.nist.gov/services-resources/software/contam
+  for NIST's copyright and redistribution statement. OpenResiVent modifies
+  the template at runtime to construct project inputs. ContamX binaries are
+  not included or distributed with this software.

@@ -1,0 +1,4 @@
+meta: {id: ex4-11, title: 既有住宅无管道设备新风校核, book_ref: 新增示例；设备与效率假设, rules: [JGJT440-2018]}
+module: ductless
+input: {area_m2: 15, height_m: 2.8, occupants: 2, whole_area_per_person_m2: 20, co2_l_h_person: 18, outdoor_ppm: 400, limit_ppm: 1000, rated_m3_h: 80, devices: 1, effectiveness: [0.8, 0.7], speed_m_s: 2, layout: horizontal, spacing_m: 0.9, opposed: false}
+output: {markdown: true}

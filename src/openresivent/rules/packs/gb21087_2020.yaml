@@ -1,0 +1,27 @@
+id: GBT21087-2020
+version: '2020'
+rules:
+  - id: GBT21087-2020:total_heat
+    title: 全热交换器制热效率
+    strength: 应
+    params: {unit: '1'}
+    check: {op: min, limit: 0.60}
+    source: GB/T 21087-2020 制热全热效率限值，按示例条件 A9 转述
+  - id: GBT21087-2020:total_cool
+    title: 全热交换器制冷效率
+    strength: 应
+    params: {unit: '1'}
+    check: {op: min, limit: 0.55}
+    source: GB/T 21087-2020 制冷全热效率限值，按示例条件转述
+  - id: GBT21087-2020:sensible_heat
+    title: 显热交换器制热效率
+    strength: 应
+    params: {unit: '1'}
+    check: {op: min, limit: 0.70}
+    source: GB/T 21087-2020 制热显热效率限值，按示例条件转述
+  - id: GBT21087-2020:sensible_cool
+    title: 显热交换器制冷效率
+    strength: 应
+    params: {unit: '1'}
+    check: {op: min, limit: 0.65}
+    source: GB/T 21087-2020 制冷显热效率限值，按示例条件转述

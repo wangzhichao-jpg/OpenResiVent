@@ -1,0 +1,16 @@
+meta:
+  id: ex4-08
+  title: 风管阻力与风机工作点
+  book_ref: 书稿4.1.3；示例参数自拟
+  rules: [JGJT440-2018]
+module: duct_network
+input:
+  design_flow_m3_h: 200
+  density_kg_m3: 1.2
+  kinematic_viscosity_m2_s: 0.000015
+  segments:
+    - {name: 主风管, length_m: 10, flow_m3_h: 200, roughness_m: 0.00015, diameter_m: 0.16, local_zeta: 0.3, role: main}
+  routes: {主环路: [主风管]}
+  fan: {free_flow_m3_h: 400, shutoff_pressure_pa: 280}
+  assumptions: 假设，需作者确认；风机曲线和局部阻力为示例值
+output: {markdown: true}

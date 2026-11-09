@@ -1,0 +1,28 @@
+meta:
+  id: ex2-02
+  title: 新装修卧室甲醛与二氧化碳法对比
+  book_ref: 书稿2.3.2、示例 A7
+  rules: [JGJT440-2018, GBT18883-2022]
+module: ventrate
+input:
+  area_m2: 30
+  floor_area_m2: 40
+  height_m: 2.8
+  occupants: 1
+  outdoor_ppm: 400
+  limit_ppm: 1000
+  limit_ppm_source: GB/T 18883-2022 第4.2条、表1
+  allowance: 0.05
+  hcho_outdoor_mg_m3: 0.01
+  hcho_limit_mg_m3: 0.08
+  hcho_sensitivity: [0.8, 1.0, 1.2]
+  hcho_example_ef_mg_m2_h: 0.30  # 示例值，需作者确认；甲醛控制对比
+  bedrooms:
+    - area_m2: 10
+      height_m: 2.8
+      occupants: 1
+      activity: sedentary
+      hcho_materials:
+        - {ef_mg_m2_h: 0.12, area_m2: 10, source: '示例值，需作者确认；示例 A7'}
+  living: {area_m2: 12, height_m: 2.8}
+output: {markdown: true}

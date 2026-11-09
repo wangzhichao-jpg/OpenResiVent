@@ -1,0 +1,2156 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "metadata": {
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "npm",
+          "version": "10.9.7"
+        },
+        {
+          "type": "library",
+          "name": "cyclonedx-library",
+          "group": "@cyclonedx",
+          "version": "7.1.0",
+          "author": "Jan Kowalleck",
+          "description": "Core functionality of CycloneDX for JavaScript (Node.js or WebBrowser).",
+          "licenses": [
+            {
+              "license": {
+                "id": "Apache-2.0"
+              }
+            }
+          ],
+          "externalReferences": [
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-javascript-library/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \"bugs.url\""
+            },
+            {
+              "url": "git+https://github.com/CycloneDX/cyclonedx-javascript-library.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \"repository.url\""
+            },
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-javascript-library#readme",
+              "type": "website",
+              "comment": "as detected from PackageJson property \"homepage\""
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "name": "cyclonedx-npm",
+          "group": "@cyclonedx",
+          "version": "2.1.0",
+          "author": "Jan Kowalleck",
+          "description": "Create CycloneDX Software Bill of Materials (SBOM) from NPM projects.",
+          "licenses": [
+            {
+              "license": {
+                "id": "Apache-2.0"
+              }
+            }
+          ],
+          "externalReferences": [
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-node-npm/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \"bugs.url\""
+            },
+            {
+              "url": "git+https://github.com/CycloneDX/cyclonedx-node-npm.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \"repository.url\""
+            },
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-node-npm#readme",
+              "type": "website",
+              "comment": "as detected from PackageJson property \"homepage\""
+            }
+          ]
+        }
+      ]
+    },
+    "component": {
+      "type": "application",
+      "name": "residential-ventilation-ui",
+      "version": "0.1.0",
+      "bom-ref": "residential-ventilation-ui@0.1.0",
+      "purl": "pkg:npm/residential-ventilation-ui@0.1.0",
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": ""
+        },
+        {
+          "name": "cdx:npm:package:private",
+          "value": "true"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "helper-string-parser",
+      "group": "@babel",
+      "version": "7.29.13",
+      "bom-ref": "@babel/helper-string-parser@7.29.13",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40babel/helper-string-parser@7.29.13?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40babel%2Fhelper-string-parser%2F-%2Fhelper-string-parser-7.29.13.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@babel/helper-string-parser/-/helper-string-parser-7.29.13.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "7d67a0afe5ac12c88c556e0a50d748233ccc4d94b3362aa1cb4fffebed8c462d9de4d14db0bfc06300505bc7819d16d30554670d5ce3689114a8a6825a330c75"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@babel/helper-string-parser"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "helper-validator-identifier",
+      "group": "@babel",
+      "version": "7.29.7",
+      "bom-ref": "@babel/helper-validator-identifier@7.29.7",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40babel/helper-validator-identifier@7.29.7?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40babel%2Fhelper-validator-identifier%2F-%2Fhelper-validator-identifier-7.29.7.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@babel/helper-validator-identifier/-/helper-validator-identifier-7.29.7.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "a9e8711a4463e7987f7dff0431a27e71887268a947231a980e7ebcdb0403ed1369f54ba3390b07a20dae4b4af6bf3af8a56fac5dff7435e79aca370d697ddf16"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@babel/helper-validator-identifier"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "parser",
+      "group": "@babel",
+      "version": "7.29.13",
+      "bom-ref": "@babel/parser@7.29.13",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40babel/parser@7.29.13?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40babel%2Fparser%2F-%2Fparser-7.29.13.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@babel/parser/-/parser-7.29.13.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "7c9339d186239538818607641a60b5b41a6ff85300ca8e1a9e77f65fa024b3ed324656a2564616ff77f4ef101f55591822867d7c5669fa6113854167bb26e191"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@babel/parser"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "types",
+      "group": "@babel",
+      "version": "7.29.11",
+      "bom-ref": "@babel/types@7.29.11",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40babel/types@7.29.11?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40babel%2Ftypes%2F-%2Ftypes-7.29.11.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@babel/types/-/types-7.29.11.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "582b1e996e340a973a828b82d52ad8e8f05a67ea0b46511563d5c1bd9048ee297f1f252b6f69c9e74e70135307105c8364d9eb58312ecb88cbe745951df4d349"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@babel/types"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "tinycolor",
+      "group": "@ctrl",
+      "version": "3.6.1",
+      "bom-ref": "@ctrl/tinycolor@3.6.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40ctrl/tinycolor@3.6.1?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40ctrl%2Ftinycolor%2F-%2Ftinycolor-3.6.1.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@ctrl/tinycolor/-/tinycolor-3.6.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "4884d257a6885ecb95355ddfdced1fda7fdc8321035a84aab5931888099cb181f275c2ab3b3de053107f89777f41fd3cf88657e0aa6035bbd474c0665b3fa470"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@ctrl/tinycolor"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "icons-vue",
+      "group": "@element-plus",
+      "version": "2.3.2",
+      "bom-ref": "@element-plus/icons-vue@2.3.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40element-plus/icons-vue@2.3.2?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40element-plus%2Ficons-vue%2F-%2Ficons-vue-2.3.2.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@element-plus/icons-vue/-/icons-vue-2.3.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "3b322e4da21f0bc41710f989bc1e18e24c37e2b497742273c5c0f59054ad06fafc6cae97d73400603a3408d323a239df4ea450089d08ee9ae512b728462113d8"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@element-plus/icons-vue"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "core",
+      "group": "@floating-ui",
+      "version": "1.8.0",
+      "bom-ref": "@floating-ui/core@1.8.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40floating-ui/core@1.8.0?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40floating-ui%2Fcore%2F-%2Fcore-1.8.0.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@floating-ui/core/-/core-1.8.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "d02219e62b69b3ff31ec11bc744221b39dc1bc2507d8f0a8a20b5a930453badf80ae6e7cb09a2827402e6612f0d87258211e5c30b34f0524bbdbcb0f868da485"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@floating-ui/core"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "dom",
+      "group": "@floating-ui",
+      "version": "1.8.0",
+      "bom-ref": "@floating-ui/dom@1.8.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40floating-ui/dom@1.8.0?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40floating-ui%2Fdom%2F-%2Fdom-1.8.0.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@floating-ui/dom/-/dom-1.8.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "c974abcde1d905365a74b3a57f28429091cd78b2671d19d1227c1d678d0bed989a02dac1c28625b03ad7defe7307552d93b08b7f370e5675555a85c4932ec27a"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@floating-ui/dom"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "utils",
+      "group": "@floating-ui",
+      "version": "0.2.12",
+      "bom-ref": "@floating-ui/utils@0.2.12",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40floating-ui/utils@0.2.12?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40floating-ui%2Futils%2F-%2Futils-0.2.12.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@floating-ui/utils/-/utils-0.2.12.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "1e90a8f2d996ccb55a779b36775f44840cf9ceaaeb43ab3af6a77a9a83cc42f90eb92c034f562045f59256e7387a79eaae0bf7387a6988e18c43ba02d77c88c3"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@floating-ui/utils"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "sourcemap-codec",
+      "group": "@jridgewell",
+      "version": "1.6.0",
+      "bom-ref": "@jridgewell/sourcemap-codec@1.6.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40jridgewell/sourcemap-codec@1.6.0?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40jridgewell%2Fsourcemap-codec%2F-%2Fsourcemap-codec-1.6.0.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.6.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "4fb8dffb9ce0b191f0349e25bd0eff69ecdbca4d27357fb32555a998703b558b04c7b6bbaabe5183921bb4916a920cdee58dacaeeab545463c43cdfb39dee217"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@jridgewell/sourcemap-codec"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "popperjs-es",
+      "group": "@sxzz",
+      "version": "2.11.8",
+      "bom-ref": "@sxzz/popperjs-es@2.11.8",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40sxzz/popperjs-es@2.11.8?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40sxzz%2Fpopperjs-es%2F-%2Fpopperjs-es-2.11.8.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@sxzz/popperjs-es/-/popperjs-es-2.11.8.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "c0ec04497bef103dd2f3106670f587b36754bb3ac4e17899785bbb7b58513882649b4d9ae3d375db4a66397c58df7b016fa840ac8b66e56e6d720d5c06d57e1d"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@popperjs/core"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "lodash-es",
+      "group": "@types",
+      "version": "4.17.12",
+      "bom-ref": "@types/lodash-es@4.17.12",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40types/lodash-es@4.17.12?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Flodash-es%2F-%2Flodash-es-4.17.12.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@types/lodash-es/-/lodash-es-4.17.12.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "d0d81fb4751c578bf7e158579bc40149fb4a557b5b9011b75620a3b3af9e2796bacba322fe388518f735b02ed02bef411615ab51113710e820996692c4bf4ecd"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@types/lodash-es"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "lodash",
+      "group": "@types",
+      "version": "4.17.27",
+      "bom-ref": "@types/lodash@4.17.27",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40types/lodash@4.17.27?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Flodash%2F-%2Flodash-4.17.27.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@types/lodash/-/lodash-4.17.27.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "55e9cc46ffde28daeca57f6fdc7e1d6e68ecae708e61d6011b79315ca937746e97faeac119c8f63ebc30df1c355392b8155fe613887919b59dd2ccc429ffbd7b"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@types/lodash"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "web-bluetooth",
+      "group": "@types",
+      "version": "0.0.16",
+      "bom-ref": "@types/web-bluetooth@0.0.16",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40types/web-bluetooth@0.0.16?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fweb-bluetooth%2F-%2Fweb-bluetooth-0.0.16.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@types/web-bluetooth/-/web-bluetooth-0.0.16.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "a21f2ad99737d92ea077f8f9d06a3012328ba0e54ec073ff6d656328922707042a74e60c74fadfd685657a54e5c9f14adc22b12f5b9a84c0c0afebf2f13ef231"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@types/web-bluetooth"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "compiler-core",
+      "group": "@vue",
+      "version": "3.5.13",
+      "bom-ref": "@vue/compiler-core@3.5.13",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40vue/compiler-core@3.5.13?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40vue%2Fcompiler-core%2F-%2Fcompiler-core-3.5.13.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@vue/compiler-core/-/compiler-core-3.5.13.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "a0e740930a947d6d56aa9c1260971ed3ac2fb7a1e58e06377c678cf4d7150351da60e8a3de6646f51932b27d0e1eec9400631b11b011229b06f8b3d5941279fd"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@vue/compiler-core"
+        }
+      ],
+      "components": [
+        {
+          "type": "library",
+          "name": "estree-walker",
+          "version": "2.0.2",
+          "bom-ref": "@vue/compiler-core@3.5.13|estree-walker@2.0.2",
+          "licenses": [
+            {
+              "license": {
+                "id": "MIT",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "purl": "pkg:npm/estree-walker@2.0.2?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Festree-walker%2F-%2Festree-walker-2.0.2.tgz",
+          "externalReferences": [
+            {
+              "url": "https://registry.npmmirror.com/estree-walker/-/estree-walker-2.0.2.tgz",
+              "type": "distribution",
+              "hashes": [
+                {
+                  "alg": "SHA-512",
+                  "content": "45f924fcca7f0cbec95637b7bb5f05c45ba34254cd476aba41f312301ec0bc2071f753468ff6dade409fcdad1fe9d5436f0ed89517ff9c3ae7ee942b082c90ff"
+                }
+              ],
+              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/@vue/compiler-core/node_modules/estree-walker"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "compiler-dom",
+      "group": "@vue",
+      "version": "3.5.13",
+      "bom-ref": "@vue/compiler-dom@3.5.13",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40vue/compiler-dom@3.5.13?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40vue%2Fcompiler-dom%2F-%2Fcompiler-dom-3.5.13.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@vue/compiler-dom/-/compiler-dom-3.5.13.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "64e278eac30e2948ceddef78c0f742cd0e8fd4bc7fbe1a76452bdf69a6fcf008dec6cd001de574b9ab18862f7d58f6a8826065447351ba5cbcc55ef970d4cc0c"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@vue/compiler-dom"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "compiler-sfc",
+      "group": "@vue",
+      "version": "3.5.13",
+      "bom-ref": "@vue/compiler-sfc@3.5.13",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40vue/compiler-sfc@3.5.13?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40vue%2Fcompiler-sfc%2F-%2Fcompiler-sfc-3.5.13.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@vue/compiler-sfc/-/compiler-sfc-3.5.13.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "e9575a9633290fcdb0e9cdbbe3d6617f94fdbb9b8b0562a756e7ba5d6c69ac3a1b7ed9e57ad27cfa87a5eec7b115f337a88c4d99513b2d21464e9bfaa1b37269"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@vue/compiler-sfc"
+        }
+      ],
+      "components": [
+        {
+          "type": "library",
+          "name": "estree-walker",
+          "version": "2.0.2",
+          "bom-ref": "@vue/compiler-sfc@3.5.13|estree-walker@2.0.2",
+          "licenses": [
+            {
+              "license": {
+                "id": "MIT",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "purl": "pkg:npm/estree-walker@2.0.2?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Festree-walker%2F-%2Festree-walker-2.0.2.tgz",
+          "externalReferences": [
+            {
+              "url": "https://registry.npmmirror.com/estree-walker/-/estree-walker-2.0.2.tgz",
+              "type": "distribution",
+              "hashes": [
+                {
+                  "alg": "SHA-512",
+                  "content": "45f924fcca7f0cbec95637b7bb5f05c45ba34254cd476aba41f312301ec0bc2071f753468ff6dade409fcdad1fe9d5436f0ed89517ff9c3ae7ee942b082c90ff"
+                }
+              ],
+              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/@vue/compiler-sfc/node_modules/estree-walker"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "compiler-ssr",
+      "group": "@vue",
+      "version": "3.5.13",
+      "bom-ref": "@vue/compiler-ssr@3.5.13",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40vue/compiler-ssr@3.5.13?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40vue%2Fcompiler-ssr%2F-%2Fcompiler-ssr-3.5.13.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@vue/compiler-ssr/-/compiler-ssr-3.5.13.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "c0c1fabeb607c5097f2326ca25a82a6eabafc69582b95629a1425f0aa159c1afc963519d013010f93815b60af0c0c6740f4ed0840f7daecfc400059fbc6e8aa4"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@vue/compiler-ssr"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "reactivity",
+      "group": "@vue",
+      "version": "3.5.13",
+      "bom-ref": "@vue/reactivity@3.5.13",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40vue/reactivity@3.5.13?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40vue%2Freactivity%2F-%2Freactivity-3.5.13.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@vue/reactivity/-/reactivity-3.5.13.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "35a0b0b70f28e3c07d23a2f5ce5da9e35387a3fd99e30a9818620ad4a86ee53ef2c6b9fe0133a2c67fd4767da6fba919281fc9edcb93f436d65a1471aa2c400a"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@vue/reactivity"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "runtime-core",
+      "group": "@vue",
+      "version": "3.5.13",
+      "bom-ref": "@vue/runtime-core@3.5.13",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40vue/runtime-core@3.5.13?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40vue%2Fruntime-core%2F-%2Fruntime-core-3.5.13.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@vue/runtime-core/-/runtime-core-3.5.13.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "163e18450dc0cf4593670d6c15ef900dbd1a5c27ab8a0129c38d7ca70d47054285b674075b3c288daba402cd97fdcf43433e0c4386ec5d31a57291b153f44223"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@vue/runtime-core"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "runtime-dom",
+      "group": "@vue",
+      "version": "3.5.13",
+      "bom-ref": "@vue/runtime-dom@3.5.13",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40vue/runtime-dom@3.5.13?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40vue%2Fruntime-dom%2F-%2Fruntime-dom-3.5.13.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@vue/runtime-dom/-/runtime-dom-3.5.13.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "74b6a3f78b3ddcd60baa32e2c85cd5b3d5fa75685374094401c882dcca2aee0cc0735dd52547429e38d1bab34ceae4cb1404d11dec47093bbf5e9dde5baca8a2"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@vue/runtime-dom"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "server-renderer",
+      "group": "@vue",
+      "version": "3.5.13",
+      "bom-ref": "@vue/server-renderer@3.5.13",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40vue/server-renderer@3.5.13?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40vue%2Fserver-renderer%2F-%2Fserver-renderer-3.5.13.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@vue/server-renderer/-/server-renderer-3.5.13.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "c008b8211255ff64805b786d913941f9d1de466a5389520ad4e18b595d72792b5549e6d24103b01b022ad03dd9228063d82daaa60cf9faf5fd8840644dd93960"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@vue/server-renderer"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "shared",
+      "group": "@vue",
+      "version": "3.5.13",
+      "bom-ref": "@vue/shared@3.5.13",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40vue/shared@3.5.13?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40vue%2Fshared%2F-%2Fshared-3.5.13.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@vue/shared/-/shared-3.5.13.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "fe19c4fea3f96681a9a25d1ae660e2e396ce77bb77b63609063b200ac8afa30ec3e3c709795e65d39443f3694faa2ee0462a6164cdfbae7856d65e99a0234d9d"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@vue/shared"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "core",
+      "group": "@vueuse",
+      "version": "9.13.0",
+      "bom-ref": "@vueuse/core@9.13.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40vueuse/core@9.13.0?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40vueuse%2Fcore%2F-%2Fcore-9.13.0.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@vueuse/core/-/core-9.13.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "a6e8e77256de1d6c713d1a975a6764295e4e5f85a4e1878aef0bac1ea47053443b105bac1e8a8d03f68f841e8a0a1f6112a2642c0268edb6f42e1f5bf8e215cf"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@vueuse/core"
+        }
+      ],
+      "components": [
+        {
+          "type": "library",
+          "name": "vue-demi",
+          "version": "0.14.10",
+          "bom-ref": "@vueuse/core@9.13.0|vue-demi@0.14.10",
+          "licenses": [
+            {
+              "license": {
+                "id": "MIT",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "purl": "pkg:npm/vue-demi@0.14.10?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Fvue-demi%2F-%2Fvue-demi-0.14.10.tgz",
+          "externalReferences": [
+            {
+              "url": "https://registry.npmmirror.com/vue-demi/-/vue-demi-0.14.10.tgz",
+              "type": "distribution",
+              "hashes": [
+                {
+                  "alg": "SHA-512",
+                  "content": "9cc6413b0bb369b50ed272e021c73aaf271911e6c5e9e7947da890c7df964a4f1edbd21b2ef3d4f5f788eada96e244e8de1be8600264321f27f03d1fb884a986"
+                }
+              ],
+              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/@vueuse/core/node_modules/vue-demi"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "metadata",
+      "group": "@vueuse",
+      "version": "9.13.0",
+      "bom-ref": "@vueuse/metadata@9.13.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40vueuse/metadata@9.13.0?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40vueuse%2Fmetadata%2F-%2Fmetadata-9.13.0.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@vueuse/metadata/-/metadata-9.13.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "81d53b4ca3405159575cb6da17e6427ed7bc0634494163c26b6279e7eeff87ec83b73c37bcea06403457cc8ea9c8aca8e9b5c54f9fd0a0f1388409271318d12d"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@vueuse/metadata"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "shared",
+      "group": "@vueuse",
+      "version": "9.13.0",
+      "bom-ref": "@vueuse/shared@9.13.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40vueuse/shared@9.13.0?download_url=https%3A%2F%2Fregistry.npmmirror.com%2F%40vueuse%2Fshared%2F-%2Fshared-9.13.0.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/@vueuse/shared/-/shared-9.13.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "52b9e153e0a7b9fbb84ba24b08f6679168745b0646529ef692d385d83169b4c94eb374ce755bfcc49379df384718046654eb33e4aa8e96cd3df89d4d47ab012b"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@vueuse/shared"
+        }
+      ],
+      "components": [
+        {
+          "type": "library",
+          "name": "vue-demi",
+          "version": "0.14.10",
+          "bom-ref": "@vueuse/shared@9.13.0|vue-demi@0.14.10",
+          "licenses": [
+            {
+              "license": {
+                "id": "MIT",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "purl": "pkg:npm/vue-demi@0.14.10?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Fvue-demi%2F-%2Fvue-demi-0.14.10.tgz",
+          "externalReferences": [
+            {
+              "url": "https://registry.npmmirror.com/vue-demi/-/vue-demi-0.14.10.tgz",
+              "type": "distribution",
+              "hashes": [
+                {
+                  "alg": "SHA-512",
+                  "content": "9cc6413b0bb369b50ed272e021c73aaf271911e6c5e9e7947da890c7df964a4f1edbd21b2ef3d4f5f788eada96e244e8de1be8600264321f27f03d1fb884a986"
+                }
+              ],
+              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/@vueuse/shared/node_modules/vue-demi"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "async-validator",
+      "version": "4.2.5",
+      "bom-ref": "async-validator@4.2.5",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/async-validator@4.2.5?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Fasync-validator%2F-%2Fasync-validator-4.2.5.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/async-validator/-/async-validator-4.2.5.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "ec78478ed1118ea94d6d9b6a36acb6adc90dfd2a4e3a59839627adfa53fb93e78a6448cf9370e0c9e53d9485cb75e2f3d2e05b6d5a7ef50768c3dc095a0c307e"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/async-validator"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "csstype",
+      "version": "3.2.3",
+      "bom-ref": "csstype@3.2.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/csstype@3.2.3?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Fcsstype%2F-%2Fcsstype-3.2.3.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/csstype/-/csstype-3.2.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "cf51c629c632db103c00641fc2b9f43c0cbe3c1ed7fc64a3dd45495bda8aca7e37c566be825e675e6538aaa2cc4735952c50bc2aeb145fc4ffd240a2398a4021"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/csstype"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "dayjs",
+      "version": "1.11.23",
+      "bom-ref": "dayjs@1.11.23",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/dayjs@1.11.23?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Fdayjs%2F-%2Fdayjs-1.11.23.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/dayjs/-/dayjs-1.11.23.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "4034c25343343314778507e794325fc1e91089a6a79b5b9b383db7d6eef758172443f7ec6a6c112e2136181cfa0f76bfc45d4d81f8832c98d705ad6160e613b5"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/dayjs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "echarts",
+      "version": "5.6.0",
+      "bom-ref": "echarts@5.6.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/echarts@5.6.0?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Fecharts%2F-%2Fecharts-5.6.0.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/echarts/-/echarts-5.6.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "a136d54ec5df2ae121c5fb47a8be71a6b80ba1cd24eee49c030b6bc8281617a84f6052d1c0e50788598718204a3f934f14d903568a4e89ec94a98187f056b790"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/echarts"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "element-plus",
+      "version": "2.9.4",
+      "bom-ref": "element-plus@2.9.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/element-plus@2.9.4?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Felement-plus%2F-%2Felement-plus-2.9.4.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/element-plus/-/element-plus-2.9.4.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "b069d6d3077dcdfea51068b15d5da07f0c775fa5533243f9daa4e45fbcdb511276a1aae2cac96b293061dadc6dd6c767d6952f8f6974298dce7d25e86469833b"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/element-plus"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "entities",
+      "version": "4.5.0",
+      "bom-ref": "entities@4.5.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-2-Clause",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/entities@4.5.0?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Fentities%2F-%2Fentities-4.5.0.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/entities/-/entities-4.5.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "5748631f87463e1f40a39a74328458e8156ab700a3873eaf2392d3f00279e47fb883dff8bdb1f1d48e787d2d17b9c94b8431c0acf40288c8c3c6368bf1f3f187"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/entities"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "escape-html",
+      "version": "1.0.3",
+      "bom-ref": "escape-html@1.0.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/escape-html@1.0.3?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Fescape-html%2F-%2Fescape-html-1.0.3.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/escape-html/-/escape-html-1.0.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "3624aea59e0e7ae1b0afaf251887b29bf92c219309a1d506392099fc54a74f172b7a46efaab81d53194938ca628da299563009ad6ac6b3fe89cbc38cbb28fda3"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/escape-html"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "lodash-es",
+      "version": "4.18.1",
+      "bom-ref": "lodash-es@4.18.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/lodash-es@4.18.1?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Flodash-es%2F-%2Flodash-es-4.18.1.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/lodash-es/-/lodash-es-4.18.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "27cc5ec0a0ff1a4db63996e1a4e552c1cb3ad3385df791120f07b3385b80dffd3df7ddb93dd1c9ece1473531ad6a32f7025664ca40f7d87ca488ca3e048048f0"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/lodash-es"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "lodash-unified",
+      "version": "1.0.3",
+      "bom-ref": "lodash-unified@1.0.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/lodash-unified@1.0.3?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Flodash-unified%2F-%2Flodash-unified-1.0.3.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/lodash-unified/-/lodash-unified-1.0.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "58af6a4a8cf15ce0fb649425a52a8e4fea26d997dc4f8c8efb4dc5bb30070f4c05e92d25d34f742d13c3c77be14d32d9f1c14aa419fe20e7155caeaa39c2257d"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/lodash-unified"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "lodash",
+      "version": "4.18.1",
+      "bom-ref": "lodash@4.18.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/lodash@4.18.1?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Flodash%2F-%2Flodash-4.18.1.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/lodash/-/lodash-4.18.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "74c22789c4cf544f1dd5ee68b5fc269a3971919a14a6254bc32793754b22fc26a3fe07f3cdb941702139b111d5fc0b23b829b15abb5ed93346498b82782abed1"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/lodash"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "magic-string",
+      "version": "0.30.21",
+      "bom-ref": "magic-string@0.30.21",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/magic-string@0.30.21?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Fmagic-string%2F-%2Fmagic-string-0.30.21.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/magic-string/-/magic-string-0.30.21.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "bddd85e1853211728670b1e8abe4c4c828f1b9e49e1e7171cb28cda7cd328345d5e2f5219c37abfe5bef96a33f6ab0796d740de4adbfde88a7c82472c7c4f609"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/magic-string"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "memoize-one",
+      "version": "6.0.0",
+      "bom-ref": "memoize-one@6.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/memoize-one@6.0.0?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Fmemoize-one%2F-%2Fmemoize-one-6.0.0.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/memoize-one/-/memoize-one-6.0.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "ae4a5eef55b43747345f3e900f4789113b960091a727d69fb25d6cae6c0fac8fb20429207b91327175db611caf2f6f7365551640263b2273d10afdc60d7b9937"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/memoize-one"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "nanoid",
+      "version": "3.3.20",
+      "bom-ref": "nanoid@3.3.20",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/nanoid@3.3.20?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Fnanoid%2F-%2Fnanoid-3.3.20.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/nanoid/-/nanoid-3.3.20.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "b8a760d86dc63422909fd6f260ea716c6aab4f67c63b9291b7927ff1bde9a24f2b4faab119617a871332262118b407fe155c98b83f6145a0ea5f9b8f15827865"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/nanoid"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "normalize-wheel-es",
+      "version": "1.2.0",
+      "bom-ref": "normalize-wheel-es@1.2.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/normalize-wheel-es@1.2.0?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Fnormalize-wheel-es%2F-%2Fnormalize-wheel-es-1.2.0.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/normalize-wheel-es/-/normalize-wheel-es-1.2.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "5a3efe10943c992b97af68967e7ba3ae2994df94765b814012b1324e626827bb9cc139f684e512b117a131be514989315c64cced8f50a6f3e6a7efb0e5fb6827"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/normalize-wheel-es"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "picocolors",
+      "version": "1.1.1",
+      "bom-ref": "picocolors@1.1.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/picocolors@1.1.1?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Fpicocolors%2F-%2Fpicocolors-1.1.1.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/picocolors/-/picocolors-1.1.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "c5c787dac9e1b5be4cf658aa0ec984c39ea57b7efa993664117fe311bfd1c4d1727a036e97b78db250973fd1438ff2dcbb45fc284c8c71e3f69eda5a1eb0c454"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/picocolors"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "postcss",
+      "version": "8.5.32",
+      "bom-ref": "postcss@8.5.32",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/postcss@8.5.32?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Fpostcss%2F-%2Fpostcss-8.5.32.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/postcss/-/postcss-8.5.32.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "2c994a08201414a3ae6718a951d630d4dcc821312c3dc832386f4b92f449bee2a3fdb4736ee458d00457bcbd29586a6c66f9fc8e4bbe2cc7a9d9e534b1e1e9f2"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/postcss"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "source-map-js",
+      "version": "1.2.2",
+      "bom-ref": "source-map-js@1.2.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/source-map-js@1.2.2?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Fsource-map-js%2F-%2Fsource-map-js-1.2.2.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/source-map-js/-/source-map-js-1.2.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "2868fff18e37c77e5a6550edb7e27898ad61a0b18750b3187d290e0c93508cd0c2de85b53ea3e8c4cc28d292d4b1633f5041b338dfcdc5e1f2c047cd5cd3f757"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/source-map-js"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "tslib",
+      "version": "2.3.0",
+      "bom-ref": "tslib@2.3.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "0BSD",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/tslib@2.3.0?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Ftslib%2F-%2Ftslib-2.3.0.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/tslib/-/tslib-2.3.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "37cda8a32c55366ea1d6b88b0a8c92f5eddfb89dc0306db3219b3619dd404dc4858d2036dd0d1fce38d97a1d236c9bd65436747094fcc9a34d69a5c7cee78d8e"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/tslib"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "vue",
+      "version": "3.5.13",
+      "bom-ref": "vue@3.5.13",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/vue@3.5.13?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Fvue%2F-%2Fvue-3.5.13.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/vue/-/vue-3.5.13.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "c267a248cc6464249cf8f336c36551b0e600642f06762a4d1514ec2d27e8755a88f666de8ca797106afc49c92e2e7ad03c67b7a093797372b4be9a14f6aff009"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/vue"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "yaml",
+      "version": "2.7.0",
+      "bom-ref": "yaml@2.7.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/yaml@2.7.0?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Fyaml%2F-%2Fyaml-2.7.0.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/yaml/-/yaml-2.7.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "fa14a8cbf40796ec660bd902209c8bfeec8598b99cf9ee42151e566be6e9221223f392d56fd647da7567aab1e84af2a8830383bf40a5a9992689249a207e4b4c"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/yaml"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "zrender",
+      "version": "5.6.1",
+      "bom-ref": "zrender@5.6.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/zrender@5.6.1?download_url=https%3A%2F%2Fregistry.npmmirror.com%2Fzrender%2F-%2Fzrender-5.6.1.tgz",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmmirror.com/zrender/-/zrender-5.6.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "3855e40c929cae5c79b2ed976f326f8ffdf84379ba3efc8266454f1c6629702279d9e93853fca66727ee5759ca136dc0c81279d44ffa62bd26859ef11933b86a"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/zrender"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "@babel/helper-string-parser@7.29.13"
+    },
+    {
+      "ref": "@babel/helper-validator-identifier@7.29.7"
+    },
+    {
+      "ref": "@babel/parser@7.29.13",
+      "dependsOn": [
+        "@babel/types@7.29.11"
+      ]
+    },
+    {
+      "ref": "@babel/types@7.29.11",
+      "dependsOn": [
+        "@babel/helper-string-parser@7.29.13",
+        "@babel/helper-validator-identifier@7.29.7"
+      ]
+    },
+    {
+      "ref": "@ctrl/tinycolor@3.6.1"
+    },
+    {
+      "ref": "@element-plus/icons-vue@2.3.2",
+      "dependsOn": [
+        "vue@3.5.13"
+      ]
+    },
+    {
+      "ref": "@floating-ui/core@1.8.0",
+      "dependsOn": [
+        "@floating-ui/utils@0.2.12"
+      ]
+    },
+    {
+      "ref": "@floating-ui/dom@1.8.0",
+      "dependsOn": [
+        "@floating-ui/core@1.8.0",
+        "@floating-ui/utils@0.2.12"
+      ]
+    },
+    {
+      "ref": "@floating-ui/utils@0.2.12"
+    },
+    {
+      "ref": "@jridgewell/sourcemap-codec@1.6.0"
+    },
+    {
+      "ref": "@sxzz/popperjs-es@2.11.8"
+    },
+    {
+      "ref": "@types/lodash-es@4.17.12",
+      "dependsOn": [
+        "@types/lodash@4.17.27"
+      ]
+    },
+    {
+      "ref": "@types/lodash@4.17.27"
+    },
+    {
+      "ref": "@types/web-bluetooth@0.0.16"
+    },
+    {
+      "ref": "@vue/compiler-core@3.5.13",
+      "dependsOn": [
+        "@babel/parser@7.29.13",
+        "@vue/compiler-core@3.5.13|estree-walker@2.0.2",
+        "@vue/shared@3.5.13",
+        "entities@4.5.0",
+        "source-map-js@1.2.2"
+      ]
+    },
+    {
+      "ref": "@vue/compiler-core@3.5.13|estree-walker@2.0.2"
+    },
+    {
+      "ref": "@vue/compiler-dom@3.5.13",
+      "dependsOn": [
+        "@vue/compiler-core@3.5.13",
+        "@vue/shared@3.5.13"
+      ]
+    },
+    {
+      "ref": "@vue/compiler-sfc@3.5.13",
+      "dependsOn": [
+        "@babel/parser@7.29.13",
+        "@vue/compiler-core@3.5.13",
+        "@vue/compiler-dom@3.5.13",
+        "@vue/compiler-sfc@3.5.13|estree-walker@2.0.2",
+        "@vue/compiler-ssr@3.5.13",
+        "@vue/shared@3.5.13",
+        "magic-string@0.30.21",
+        "postcss@8.5.32",
+        "source-map-js@1.2.2"
+      ]
+    },
+    {
+      "ref": "@vue/compiler-sfc@3.5.13|estree-walker@2.0.2"
+    },
+    {
+      "ref": "@vue/compiler-ssr@3.5.13",
+      "dependsOn": [
+        "@vue/compiler-dom@3.5.13",
+        "@vue/shared@3.5.13"
+      ]
+    },
+    {
+      "ref": "@vue/reactivity@3.5.13",
+      "dependsOn": [
+        "@vue/shared@3.5.13"
+      ]
+    },
+    {
+      "ref": "@vue/runtime-core@3.5.13",
+      "dependsOn": [
+        "@vue/reactivity@3.5.13",
+        "@vue/shared@3.5.13"
+      ]
+    },
+    {
+      "ref": "@vue/runtime-dom@3.5.13",
+      "dependsOn": [
+        "@vue/reactivity@3.5.13",
+        "@vue/runtime-core@3.5.13",
+        "@vue/shared@3.5.13",
+        "csstype@3.2.3"
+      ]
+    },
+    {
+      "ref": "@vue/server-renderer@3.5.13",
+      "dependsOn": [
+        "@vue/compiler-ssr@3.5.13",
+        "@vue/shared@3.5.13",
+        "vue@3.5.13"
+      ]
+    },
+    {
+      "ref": "@vue/shared@3.5.13"
+    },
+    {
+      "ref": "@vueuse/core@9.13.0",
+      "dependsOn": [
+        "@types/web-bluetooth@0.0.16",
+        "@vueuse/core@9.13.0|vue-demi@0.14.10",
+        "@vueuse/metadata@9.13.0",
+        "@vueuse/shared@9.13.0"
+      ]
+    },
+    {
+      "ref": "@vueuse/core@9.13.0|vue-demi@0.14.10",
+      "dependsOn": [
+        "vue@3.5.13"
+      ]
+    },
+    {
+      "ref": "@vueuse/metadata@9.13.0"
+    },
+    {
+      "ref": "@vueuse/shared@9.13.0",
+      "dependsOn": [
+        "@vueuse/shared@9.13.0|vue-demi@0.14.10"
+      ]
+    },
+    {
+      "ref": "@vueuse/shared@9.13.0|vue-demi@0.14.10",
+      "dependsOn": [
+        "vue@3.5.13"
+      ]
+    },
+    {
+      "ref": "async-validator@4.2.5"
+    },
+    {
+      "ref": "csstype@3.2.3"
+    },
+    {
+      "ref": "dayjs@1.11.23"
+    },
+    {
+      "ref": "echarts@5.6.0",
+      "dependsOn": [
+        "tslib@2.3.0",
+        "zrender@5.6.1"
+      ]
+    },
+    {
+      "ref": "element-plus@2.9.4",
+      "dependsOn": [
+        "@ctrl/tinycolor@3.6.1",
+        "@element-plus/icons-vue@2.3.2",
+        "@floating-ui/dom@1.8.0",
+        "@sxzz/popperjs-es@2.11.8",
+        "@types/lodash-es@4.17.12",
+        "@types/lodash@4.17.27",
+        "@vueuse/core@9.13.0",
+        "async-validator@4.2.5",
+        "dayjs@1.11.23",
+        "escape-html@1.0.3",
+        "lodash-es@4.18.1",
+        "lodash-unified@1.0.3",
+        "lodash@4.18.1",
+        "memoize-one@6.0.0",
+        "normalize-wheel-es@1.2.0",
+        "vue@3.5.13"
+      ]
+    },
+    {
+      "ref": "entities@4.5.0"
+    },
+    {
+      "ref": "escape-html@1.0.3"
+    },
+    {
+      "ref": "lodash-es@4.18.1"
+    },
+    {
+      "ref": "lodash-unified@1.0.3",
+      "dependsOn": [
+        "@types/lodash-es@4.17.12",
+        "lodash-es@4.18.1",
+        "lodash@4.18.1"
+      ]
+    },
+    {
+      "ref": "lodash@4.18.1"
+    },
+    {
+      "ref": "magic-string@0.30.21",
+      "dependsOn": [
+        "@jridgewell/sourcemap-codec@1.6.0"
+      ]
+    },
+    {
+      "ref": "memoize-one@6.0.0"
+    },
+    {
+      "ref": "nanoid@3.3.20"
+    },
+    {
+      "ref": "normalize-wheel-es@1.2.0"
+    },
+    {
+      "ref": "picocolors@1.1.1"
+    },
+    {
+      "ref": "postcss@8.5.32",
+      "dependsOn": [
+        "nanoid@3.3.20",
+        "picocolors@1.1.1",
+        "source-map-js@1.2.2"
+      ]
+    },
+    {
+      "ref": "residential-ventilation-ui@0.1.0",
+      "dependsOn": [
+        "echarts@5.6.0",
+        "element-plus@2.9.4",
+        "vue@3.5.13",
+        "yaml@2.7.0"
+      ]
+    },
+    {
+      "ref": "source-map-js@1.2.2"
+    },
+    {
+      "ref": "tslib@2.3.0"
+    },
+    {
+      "ref": "vue@3.5.13",
+      "dependsOn": [
+        "@vue/compiler-dom@3.5.13",
+        "@vue/compiler-sfc@3.5.13",
+        "@vue/runtime-dom@3.5.13",
+        "@vue/server-renderer@3.5.13",
+        "@vue/shared@3.5.13"
+      ]
+    },
+    {
+      "ref": "yaml@2.7.0"
+    },
+    {
+      "ref": "zrender@5.6.1",
+      "dependsOn": [
+        "tslib@2.3.0"
+      ]
+    }
+  ]
+}

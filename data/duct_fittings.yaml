@@ -1,0 +1,32 @@
+# 局部阻力系数：测试值，不代表全部弯头；最终工程取具体几何试验值。
+license: CC BY 4.0
+entries:
+  - id: sharp_entrance
+    name: 锐边入口
+    zeta: 0.5
+    source: 'C. Wassgren, Purdue ME 309 Pipe Flows – Head Losses, p.7, Table f, https://engineering.purdue.edu/~wassgren/teaching/ME30800/NotesAndReading/PipeFlows_Losses_LectureNotes.pdf'
+    scope: '圆形管道锐边入口，充分湍流典型值；实际风管需复核'
+    reference_velocity: 入口管内平均风速
+    license: '数值事实及本项目描述 CC BY 4.0；原教材版权不变'
+  - id: exit_to_large_space
+    name: 管道出口至大空间
+    zeta: 1.0
+    source: 'C. Wassgren, Purdue ME 309 Pipe Flows – Head Losses, p.7, Table g, https://engineering.purdue.edu/~wassgren/teaching/ME30800/NotesAndReading/PipeFlows_Losses_LectureNotes.pdf'
+    scope: '管道排入大空间，典型值；实际风口需复核'
+    reference_velocity: 出口管内平均风速
+    license: '数值事实及本项目描述 CC BY 4.0；原教材版权不变'
+  - id: flanged_elbow_90
+    name: 法兰连接普通90度弯头
+    zeta: 0.3
+    source: 'C. Wassgren, Purdue ME 309 Pipe Flows – Head Losses, p.7, Table a, https://engineering.purdue.edu/~wassgren/teaching/ME30800/NotesAndReading/PipeFlows_Losses_LectureNotes.pdf'
+    scope: '普通法兰90°管道弯头典型值；非任意住宅风管弯头通用值'
+    reference_velocity: 弯头相连管段平均风速
+    license: '数值事实及本项目描述 CC BY 4.0；原教材版权不变'
+  - id: example_elbow
+    name: 示例弯头
+    zeta: 0.3
+    source: '示例 A7 给定算例值；几何信息未给出'
+    scope: '假设，需作者确认；不得当成任意弯头的通用数据'
+    sensitivity: [0.24, 0.3, 0.36]
+    reference_velocity: 管段截面平均风速
+    license: CC BY 4.0

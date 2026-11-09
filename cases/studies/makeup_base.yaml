@@ -1,0 +1,11 @@
+meta: {id: makeup-study, title: 户内补风假设工况, rules: []}
+module: makeup_design
+input:
+  bedrooms: 2
+  volume_m3: 250
+  n50_per_h: 1
+  hood_m3_h: 300
+  fresh_supply_m3_h: 150
+  fresh_exhaust_m3_h: 127.5
+  threshold_pa: 15
+output: {}

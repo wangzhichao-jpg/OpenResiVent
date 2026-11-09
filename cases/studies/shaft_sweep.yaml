@@ -1,0 +1,15 @@
+base_case: shaft_base.yaml
+method: factorial
+factors:
+  floors: {values: [6, 18, 33]}
+  width: {values: [0.4, 0.5, 0.75]}
+  depth: {values: [0.3, 0.4, 0.6]}
+  fraction: {values: [0.2, 0.4, 0.6]}
+  fan_kind: {values: [ordinary, common]}
+  valve_class: {values: [good, medium, poor]}
+metrics:
+  bottom_m3_s: floors.0.exhaust_m3_s
+  worst_m3_s: worst_active_exhaust_m3_s
+  backflow_m3_s: max_backflow_m3_s
+criteria:
+  bottom_m3_s: {op: min, limit: 0.08333333333333333}

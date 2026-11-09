@@ -1,0 +1,21 @@
+meta:
+  id: ex2-06
+  title: 多环芳烃毒性当量与吸入风险示例
+  book_ref: 书稿2.2.2至2.2.3；Yang 等 2024 第8–10页
+  rules: []
+module: health_pah
+input:
+  concentrations_ng_m3: {BaP: 1.0, BaA: 2.0, Chr: 5.0}
+  concentrations_source: 假设，需作者确认；示例值按 示例 A10，并非杨英霞论文实测浓度
+  iur_per_ug_m3: 0.087
+  iur_source: WHO 吸入单位风险，示例 A11
+  hours_day: 2
+  hours_source: 假设，需作者确认
+  days_year: 350
+  days_source: Yang 等 2024 第10页 2.3.1 节，暴露频率
+  years: 52
+  years_source: Yang 等 2024 第10页 2.3.1 节，成人暴露时间
+  averaging_years: 70
+  averaging_source: 假设，需作者确认；示例 A11 示例
+  sensitivity: [0.8, 1.0, 1.2]
+output: {markdown: true}

@@ -1,0 +1,11 @@
+meta: {id: shaft-study, title: 共用竖井假设工况, rules: []}
+module: shaft
+input:
+  floors: 6
+  width: 0.5
+  depth: 0.4
+  fraction: 0.4
+  distribution: lower
+  fan_kind: ordinary
+  valve_class: medium
+output: {}

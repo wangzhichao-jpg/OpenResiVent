@@ -1,0 +1,15 @@
+meta:
+  id: ex6-02
+  title: 多点空气龄与换气效率
+  book_ref: 书稿6.1、6.2.5
+module: air_age
+input:
+  nominal_age_s: 3600
+  csv: ex6-02.csv
+  background: 400
+  volumes_m3: [30, 30]
+  supply_concentration: 0.0004
+  room_concentration: 0.0008
+  exhaust_concentration: 0.0008
+  assumptions: 示例值，需作者确认；完全混合假设
+output: {markdown: true}

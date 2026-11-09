@@ -1,0 +1,20 @@
+meta: {id: commissioning-manual, title: 新风竣工调试与运维示例, book_ref: 验收数据为合成示例, rules: []}
+module: report_commissioning
+input:
+  acceptance:
+    start: '2026-01-01T00:00:00'
+    seed: 440
+    worst_day_indexes: [25, 26, 27, 28, 29]
+    outdoor_high_ug_m3: 100
+    outdoor_base_ug_m3: 30
+    indoor_base_ug_m3: 40
+    noise_std_ug_m3: 0.2
+    co2_ppm: 800
+    spot_duration_minutes: 45
+    total_design_m3_h: 200
+    total_measured_m3_h: 185
+    terminal_design_m3_h: 50
+    terminal_measured_m3_h: 60
+    total_homes: 100
+  maintenance: {core: cellulose, initial_latent: 0.8, after_clean_latent: 0.63, filter_pressure_ratio: 2.0}
+output: {}
