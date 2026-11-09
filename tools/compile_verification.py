@@ -5,12 +5,14 @@ from pathlib import Path
 
 from docx import Document
 
+from openresivent import __version__
+
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "build/p310"
 
 SUMMARY = """# OpenResiVent 验证报告
 
-版本：0.5.0rc1。本报告汇编全部验证文档，并列出尚未完成的对照；通过仅表示所列工况满足所列判据，不表示整个模型或实际工程通过认证。资料内部编号和机构称谓在本汇编中省略；可重复性所需数据、数值与文献题名保留。缺数据时优先采用公开数值、标注精度的读图或明确假设，未用实测值填补缺口。
+版本：{version}。本报告汇编全部验证文档，并列出尚未完成的对照；通过仅表示所列工况满足所列判据，不表示整个模型或实际工程通过认证。资料内部编号和机构称谓在本汇编中省略；可重复性所需数据、数值与文献题名保留。缺数据时优先采用公开数值、标注精度的读图或明确假设，未用实测值填补缺口。
 
 ## 目录
 
@@ -48,12 +50,12 @@ def neutral(text):
     """删除内部编号、组织及品牌称谓，不改动参考值。"""
     text = re.sub(r"\[([^\]]+)\]\(https?://[^)]+\)", r"\1", text)
     text = re.sub(r"https?://[^\s）`]+", "（资料链接见原参考条目）", text)
-    text = re.sub(r"\u0057\u004f\u002d\u0050\d+-\d+", "阶段", text)
-    text = re.sub(r"\u004d\u0053\u0047\u002d\d+", "说明", text)
+    from openresivent.core.private_terms import load_private_terms
+
+    for term in load_private_terms():
+        text = re.sub(re.escape(term), "", text, flags=re.IGNORECASE)
     text = re.sub(r"\bR\d+\b", "此前", text)
     for old, new in [
-        ("\u5de5\u4f5c\u6307\u4ee4所列", "既定参照"),
-        ("\u7ba1\u7406\u7aef", "复核人员"),
         ("NIST", "公开技术资料"),
         ("NOAA", "公开气象资料"),
         ("ASHRAE", "公开暖通"),
@@ -105,7 +107,7 @@ def render_docx(markdown, target):
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     sources = sorted((ROOT / "docs/verification").glob("*.md"))
-    text = SUMMARY + "\n## 文档汇编\n"
+    text = SUMMARY.replace("{version}", __version__) + "\n## 文档汇编\n"
     for path in sources:
         text += "\n### " + path.stem + "\n\n" + path.read_text(encoding="utf8") + "\n"
     text = neutral(text)

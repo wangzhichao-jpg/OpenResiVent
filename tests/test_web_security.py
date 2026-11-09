@@ -9,7 +9,7 @@ import yaml
 from fastapi.testclient import TestClient
 
 from openresivent.api import app
-from openresivent.web_security import AssetParser, scan
+from openresivent.web_security import UPSTREAM_CDN_ALLOWLIST, AssetParser, scan
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -36,6 +36,36 @@ def test_scanner_detects_loading_not_plain_links(tmp_path):
     assert scan(tmp_path)
     (tmp_path / "app.js").write_text('fetch("http://127.0.0.1:8765/run")')
     assert not scan(tmp_path)
+    (tmp_path / "app.js").write_text('import("node:fs")')
+    assert not scan(tmp_path)
+    (tmp_path / "app.js").write_text("runtime.setCdnUrl(`https://remote.test/wheels/`)")
+    assert scan(tmp_path)
+
+
+def test_upstream_allowlist_requires_path_hash_and_url(tmp_path, monkeypatch):
+    import hashlib
+
+    original = b"loader.setCdnUrl(`https://example.test/specific/`)"
+    path = tmp_path / "pyodide" / "pyodide.mjs"
+    path.parent.mkdir()
+    path.write_bytes(original)
+    digest = hashlib.sha256(original).hexdigest()
+    entry = ("pyodide/pyodide.mjs", digest, "https://example.test/specific/")
+    import openresivent.web_security as security
+
+    monkeypatch.setattr(security, "UPSTREAM_CDN_ALLOWLIST", frozenset({entry}))
+    assert not scan(tmp_path)
+    assert security.allowed_upstream_references(tmp_path) == [entry]
+    path.write_bytes(original + b" ")
+    assert scan(tmp_path)  # 内容变更，即使地址未变也不放行。
+    assert not security.allowed_upstream_references(tmp_path)
+    path.write_bytes(original)
+    wrong_path = tmp_path / "other.mjs"
+    wrong_path.write_bytes(original)
+    assert any("other.mjs" in item for item in scan(tmp_path))
+    path.write_bytes(original.replace(b"/specific/", b"/different/"))
+    assert scan(tmp_path)
+    assert len(UPSTREAM_CDN_ALLOWLIST) == 2
 
 
 def test_built_assets_and_csp():
@@ -45,7 +75,14 @@ def test_built_assets_and_csp():
     client = TestClient(app)
     r = client.get("/")
     assert r.status_code == 200 and "default-src 'self'" in r.headers["content-security-policy"]
-    assert "connect-src 'self'" in r.headers["content-security-policy"]
+    directives = {
+        part.strip().split()[0]: part.strip().split()[1:]
+        for part in r.headers["content-security-policy"].split(";")
+        if part.strip()
+    }
+    assert directives["connect-src"] == ["'self'"]
+    assert directives["script-src"] == ["'self'", "'wasm-unsafe-eval'"]
+    assert "'unsafe-eval'" not in r.headers["content-security-policy"]
     parser = AssetParser()
     parser.feed(r.text)
     assert parser.references
@@ -53,8 +90,29 @@ def test_built_assets_and_csp():
         if url.startswith("/"):
             assert client.get(url).status_code == 200, url
     assert not scan(root)
+    if (root / "pyodide/pyodide.mjs").is_file():
+        from openresivent.web_security import allowed_upstream_references
+
+        assert len(allowed_upstream_references(root)) == 2
+    assert 'http-equiv="Content-Security-Policy"' in r.text
+    assert "connect-src 'self'" in r.text
+    assert "script-src 'self' 'wasm-unsafe-eval'" in r.text
     text = "\n".join(p.read_text(errors="ignore") for p in root.rglob("*") if p.is_file())
-    assert not re.search(r"\u5de5\u4f5c\u6307\u4ee4|\u0057\u004f\u002d\u0050\d|\u7ba1\u7406\u7aef|JGJT\d{3,}-\d{4}|GBT\d{3,}-\d{4}", text)
+    assert not re.search(
+        r"合成禁词|JGJT\d{3,}-\d{4}|GBT\d{3,}-\d{4}",
+        text,
+    )
+
+
+def test_local_wasm_served_with_same_origin_csp():
+    wasm = ROOT / "build/web/pyodide/pyodide.asm.wasm"
+    if not wasm.is_file():
+        pytest.skip("尚未准备本地浏览器运行时")
+    response = TestClient(app).get("/pyodide/pyodide.asm.wasm")
+    assert response.status_code == 200
+    assert response.headers["content-type"].startswith("application/wasm")
+    assert "connect-src 'self'" in response.headers["content-security-policy"]
+    assert len(response.content) == wasm.stat().st_size
 
 
 def test_nested_fields():

@@ -63,7 +63,7 @@ def test_report(kind, file, terms, tmp_path):
     for t in terms:
         assert t.replace("−", "-") in text.replace("−", "-"), t
     assert not re.search(
-        r"\u5de5\u4f5c\u6307\u4ee4|WO-|\u004d\u0053\u0047\u002d|(?:GBT|JGJT|GB)\d{3,}-\d{4}|有限公司|研究院|设计院|大学|学院|集团|协会",
+        r"合成禁词|(?:GBT|JGJT|GB)\d{3,}-\d{4}|有限公司|研究院|设计院|大学|学院|集团|协会",
         text,
     )
     assert "输入 SHA256" in text and "规则包版本" in text

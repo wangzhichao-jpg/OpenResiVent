@@ -53,7 +53,7 @@ def verify(folder, thresholds):
 
 def main():
     for name, t in [("shaft-study", {"bottom_m3_s": 300 / 3600}), ("makeup-study", {})]:
-        print(name, "已复核", verify(ROOT / "build/p309" / name, t), "项")
+        print(name, "已复核", verify(ROOT / "build/parameter-sweep" / name, t), "项")
 
 
 if __name__ == "__main__":

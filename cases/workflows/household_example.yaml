@@ -1,0 +1,75 @@
+title: 典型三居室示例
+ventilation:
+  meta:
+    id: ex2-03
+    title: 典型三居室新风量计算
+    book_ref: 书稿2.3节；三居室为自拟示例
+    rules:
+    - JGJ/T 440-2018
+    - GB/T 18883-2022
+  module: ventrate
+  input:
+    area_m2: 75
+    floor_area_m2: 90
+    height_m: 2.8
+    occupants: 3
+    outdoor_ppm: 400
+    limit_ppm: 1000
+    limit_ppm_source: GB/T 18883-2022 第4.2条、表1
+    allowance: 0.05
+    hcho_sensitivity:
+    - 0.8
+    - 1.0
+    - 1.2
+    bedrooms:
+    - area_m2: 15
+      height_m: 2.8
+      occupants: 2
+      activity: sleeping
+      hcho_materials:
+      - ef_mg_m2_h: 0.12
+        area_m2: 10
+        source: 示例值，需作者确认
+    - area_m2: 10
+      height_m: 2.8
+      occupants: 1
+      activity: sedentary
+    - area_m2: 10
+      height_m: 2.8
+      occupants: 0
+      activity: sedentary
+    living:
+      area_m2: 24
+      height_m: 2.8
+  output:
+    markdown: true
+dwelling:
+  meta:
+    id: ex5-07
+    title: 新风系统与油烟机压差耦合及补风联锁
+    book_ref: 拟新增 5.5；全部设备与户型为假设示例，非实测
+    rules: []
+  module: dwelling_pressure
+  input:
+    bedrooms: 3
+    volume_m3: 250
+    n50_per_h:
+    - 1.0
+    - 0.6
+    kitchen_open: false
+    door_gap_area_m2: 0.015
+    transfer_area_m2: 0.005
+    density_kg_m3: 1.2
+    hood_m3_h: 300
+    fresh_supply_m3_h: 150
+    fresh_exhaust_m3_h: 127.5
+    opening_area_m2: 0.02
+    mechanical_makeup_m3_h: 150
+    hood_room: kitchen
+    supply_room: living
+    exhaust_room: bath
+    bath_fan_room: bath
+    threshold_pa: 15
+  output:
+    markdown: true
+sources: {}

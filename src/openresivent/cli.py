@@ -109,6 +109,24 @@ def report(
 
 
 @app.command()
+def check(
+    case_path: Path,
+    out: Annotated[Path, typer.Option("--out")] = Path("build/household-check"),
+):
+    """执行一户校核 JSON/YAML 并生成结果与合并 DOCX。"""
+    import yaml
+
+    from openresivent.household_check import HouseholdCheck, calculate, result_json, save_report
+
+    data = HouseholdCheck.model_validate(yaml.safe_load(case_path.read_text(encoding="utf8")))
+    result = calculate(data)
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "result.json").write_text(result_json(result), encoding="utf8")
+    save_report(data, result, out / "report.docx")
+    typer.echo(str(out / "report.docx"))
+
+
+@app.command()
 def sweep(
     definition: Path,
     out: Annotated[Path, typer.Option("--out")],

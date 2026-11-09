@@ -2,6 +2,8 @@
 
 from openresivent.ventrate.air_distribution import indoor_outlets, jet, outdoor_intake
 from openresivent.ventrate.natural import (
+    book_double_opening,
+    book_single_opening,
     coupled,
     double_opening,
     metrics,
@@ -41,8 +43,12 @@ def run(module: str, d: dict) -> dict:
             "double": double,
             "thermal_network": thermal,
             "coupled_network": both,
-            "book_single": 0.04 * d["single_area_m2"] * d["delta_t_k"] * d["opening_height_m"],
-            "book_double": 0.15 * d["a1_m2"] * d["delta_t_k"] * d["height_m"],
+            "book_single": book_single_opening(
+                d["single_area_m2"], d["opening_height_m"], d["delta_t_k"]
+            ),
+            "book_double": book_double_opening(
+                d["a1_m2"], d["a2_m2"], d["height_m"], d["delta_t_k"]
+            ),
             "sensitivity": {
                 str(f): single_opening(
                     d["cd"] * f,

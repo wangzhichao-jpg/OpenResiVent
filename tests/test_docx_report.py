@@ -33,22 +33,23 @@ def test_report(tmp_path, chapter, case):
         "风险提示",
     ):
         assert term in text
-    assert not re.search(r"\u5de5\u4f5c\u6307\u4ee4|WO-|\u004d\u0053\u0047\u002d|\u7ba1\u7406\u7aef|(?:GBT|JGJT|GB)\d{3,}-\d{4}", text)
+    assert not re.search(r"合成禁词|(?:GBT|JGJT|GB)\d{3,}-\d{4}", text)
     if case == "ex5-07":
         assert "不作规范合规结论" in text and "不是燃气安全限值" in text
     else:
         assert "JGJ/T 440-2018" in text and "GB/T 18883-2022" in text and "满足" in text
 
 
-def test_scan_all_parts():
+def test_scan_all_parts(monkeypatch):
+    monkeypatch.setattr('openresivent.report.docx_report.load_private_terms', lambda: ('合成禁词',))
     for location in ("body", "table", "header", "footer"):
         doc = Document()
         if location == "body":
             doc.add_paragraph("JGJT440-2018")
         elif location == "table":
-            doc.add_table(rows=1, cols=1).cell(0, 0).text = "\u5de5\u4f5c\u6307\u4ee4"
+            doc.add_table(rows=1, cols=1).cell(0, 0).text = "合成禁词"
         elif location == "header":
-            doc.sections[0].header.paragraphs[0].text = "\u0057\u004f\u002d\u00503-03"
+            doc.sections[0].header.paragraphs[0].text = "合成禁词"
         else:
             doc.sections[0].footer.paragraphs[0].text = "GBT18883-2022"
         with pytest.raises(ValueError):

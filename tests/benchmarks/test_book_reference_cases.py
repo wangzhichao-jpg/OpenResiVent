@@ -1,4 +1,4 @@
-"""\u5de5\u4f5c\u6307\u4ee4书稿算例的解析目标与命令行回归。"""
+"""书稿算例的解析目标与命令行回归。"""
 
 import json
 from pathlib import Path

@@ -7,6 +7,7 @@ from pathlib import Path
 from docx import Document
 
 from openresivent.core.case import load_case
+from openresivent.core.private_terms import load_private_terms
 from openresivent.core.provenance import activity_data_path, provenance
 from openresivent.core.runner import execute
 from openresivent.report.markdown import render
@@ -28,7 +29,9 @@ def _flatten(value, path=""):
 
 
 def _clean(text):
-    text = re.sub(r"WO-[A-Za-z0-9-]+|\u004d\u0053\u0047\u002d[0-9]+", "", str(text))
+    text = str(text)
+    for term in load_private_terms():
+        text = re.sub(re.escape(term), "", text, flags=re.IGNORECASE)
     text = re.sub(r"\b(?:GBT|JGJT|GB)\d{3,}-\d{4}:[\w.:-]+", "", text)
     return text
 
@@ -64,8 +67,9 @@ def document_text(doc) -> str:
 
 def validate_document(doc, *, reject_names: bool = False) -> None:
     """扫描全部可见段落、表格、页眉页脚；违禁内容禁止交付。"""
-    if re.search(
-        r"\u5de5\u4f5c\u6307\u4ee4|WO-|\u004d\u0053\u0047\u002d|\u7ba1\u7406\u7aef|\u9a8c\u6536\u65b9|(?:GBT|JGJT|GB)\d{3,}-\d{4}", document_text(doc)
+    text = document_text(doc)
+    if any(term.casefold() in text.casefold() for term in load_private_terms()) or re.search(
+        r"(?:GBT|JGJT|GB)\d{3,}-\d{4}", text
     ):
         raise ValueError("报告含管理用语或内部规则编号")
     if reject_names and re.search(

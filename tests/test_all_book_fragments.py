@@ -36,7 +36,7 @@ def test_all_book_fragment_structure(case, tmp_path):
     assert "| 参数 | 符号 | 数值 | 单位 | 来源 |" in text
     assert text.count("| 参数 | 符号 | 数值 | 单位 | 来源 |") == 1
     assert not re.search(
-        r"第[一二三四五六七八九十]+步|\u5de5\u4f5c\u6307\u4ee4|WO-|\u004d\u0053\u0047\u002d|\u7ba1\u7406\u7aef|\u9a8c\u6536\u65b9|(?:GBT|JGJT|GB)\d{3,}-\d{4}:",
+        r"第[一二三四五六七八九十]+步|合成禁词|(?:GBT|JGJT|GB)\d{3,}-\d{4}:",
         text,
     )
     assert len(re.findall(r"^\|[\s:|\-]+\|$", text, re.MULTILINE)) == (

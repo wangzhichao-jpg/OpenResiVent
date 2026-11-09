@@ -1,40 +1,11 @@
-"""公开快照的本地敏感内容扫描。"""
+"""公开快照的通用检查与可选本地词表扫描。"""
 
 import argparse
+import hashlib
 import re
 from pathlib import Path
 
-# 不在源码中直接写入被检索的词，以免扫描器命中自身。
-TERMS = tuple(
-    bytes.fromhex(value).decode("utf8")
-    for value in (
-        "e5b7a5e4bd9ce68c87e4bba4",
-        "574f2d50",
-        "4d53472d",
-        "e7aea1e79086e7abaf",
-        "e696bde5b7a5e7abaf",
-        "e9aa8ce694b6e696b9",
-        "e4bfaee8aea2e88d89e6a188",
-        "e5be81e6b182e6848fe8a781e7a8bf",
-        "e98081e5aea1e7a8bf",
-        "e68aa5e689b9e7a8bf",
-        "e7bc96e588b6e5a4a7e7bab2",
-        "e4bfaee8aea2e6b885e58d95",
-        "e7a094e7a9b6e8afbee9a298",
-        "e590afe58aa8e4bc9a",
-        "e4bfaee8aea2e7bc96e588b6",
-    )
-)
-BRANDS = tuple(
-    bytes.fromhex(value).decode("utf8")
-    for value in (
-        "e5a4a7e98791",
-        "e99c8de5b0bce99fa6e5b094",
-        "e69dbee4b88b",
-        "e7be8ee79a84",
-        "e6b5b7e5b094",
-    )
-)
+PRIVATE_TERMS = Path(__file__).resolve().parent / "private/scan_terms.txt"
 PATTERNS = {
     "本机绝对路径": re.compile(
         r'/(?:home|Users)/[A-Za-z0-9_.-]+/[^\s"\']+|[A-Za-z]:\\Users\\[^\s"\']+'
@@ -47,18 +18,43 @@ PATTERNS = {
         r'(?i)(?:sk|ghp|github_pat|gitee|xoxb)[-_][A-Za-z0-9_-]{16,}|(?:api[_-]?key|access[_-]?token|password)\s*[:=]\s*["\'][A-Za-z0-9_./+-]{12,}["\']'
     ),
 }
-SKIP_DIRS = {
-    ".git",
-    "node_modules",
-    ".venv",
-    "__pycache__",
-    ".pytest_cache",
-    ".ruff_cache",
+# 上游许可原文按路径、哈希和地址精确放行；合成测试按文件和完整行精确放行。
+LICENSE_EMAIL_ALLOWLIST = {
+    (
+        "web/licenses/zlib-1.2.13.txt",
+        "845efc77857d485d91fb3e0b884aaa929368c717ae8186b66fe1ed2495753243",
+        "jloup@gzip.org",
+    ),
+    (
+        "web/licenses/zlib-1.2.13.txt",
+        "845efc77857d485d91fb3e0b884aaa929368c717ae8186b66fe1ed2495753243",
+        "madler@alumni.caltech.edu",
+    ),
+    (
+        "web/licenses/bzip2-1.0.6.txt",
+        "4919cfb14a73cd64fcef67b107613970cf1659a09aa675dba31314f373bc7204",
+        "jseward@bzip.org",
+    ),
 }
+SKIP_DIRS = {".git", "node_modules", ".venv", "__pycache__", ".pytest_cache", ".ruff_cache"}
+
+
+def load_terms(path=None):
+    """返回词表；缺失时返回 None，空词表无效。"""
+    path = Path(path) if path is not None else PRIVATE_TERMS
+    if not path.is_file():
+        return None
+    terms = tuple(
+        x.strip()
+        for x in path.read_text(encoding="utf8").splitlines()
+        if x.strip() and not x.lstrip().startswith("#")
+    )
+    if not terms:
+        raise ValueError("私有词表为空")
+    return terms
 
 
 def book_windows(book):
-    """生成正文去空白后 50 字滑窗；不输出书稿内容。"""
     result = set()
     for path in sorted(book.glob("*.md")):
         text = re.sub(r"\s+", "", path.read_text(encoding="utf8"))
@@ -66,8 +62,15 @@ def book_windows(book):
     return result
 
 
-def scan(root, book=None):
-    """返回 (相对路径,行号,类别)；不打印命中内容。"""
+def decode_escapes(line):
+    """解码 Unicode 单元，不破坏原有中文。"""
+    return re.sub(r"\\u([0-9a-fA-F]{4})", lambda m: chr(int(m.group(1), 16)), line)
+
+
+def scan(root, book=None, terms=None):
+    """返回路径、行号和类别；可显式传入词表，缺省自动读取。"""
+    if terms is None:
+        terms = load_terms() or ()
     windows = book_windows(book) if book and book.is_dir() else set()
     issues = []
     for path in sorted(root.rglob("*")):
@@ -80,20 +83,33 @@ def scan(root, book=None):
         if not path.is_file():
             continue
         try:
-            text = path.read_text(encoding="utf8")
+            raw = path.read_bytes()
+            text = raw.decode("utf8")
         except UnicodeError:
             issues.append((str(rel), 0, "非 UTF-8 或二进制文件"))
             continue
         if "\x00" in text:
             issues.append((str(rel), 0, "二进制文件"))
             continue
-        for no, line in enumerate(text.splitlines(), 1):
-            for term in TERMS + BRANDS:
-                if term.lower() in line.lower():
-                    issues.append((str(rel), no, "敏感词"))
-                    break
+        digest = hashlib.sha256(raw).hexdigest()
+        for no, original in enumerate(text.splitlines(), 1):
+            line = decode_escapes(original) if path.suffix in (".json", ".py") else original
+            if any(term.casefold() in line.casefold() for term in terms):
+                issues.append((str(rel), no, "私有词表命中"))
             for label, pattern in PATTERNS.items():
-                if pattern.search(line):
+                matches = list(pattern.finditer(line))
+                if label == "邮箱":
+                    matches = [
+                        m
+                        for m in matches
+                        if (rel.as_posix(), digest, m.group()) not in LICENSE_EMAIL_ALLOWLIST
+                        and not (
+                            rel.as_posix() == "tools/scan_public.py"
+                            and original.strip() == f'"{m.group()}",'
+                            and any(m.group() == entry[2] for entry in LICENSE_EMAIL_ALLOWLIST)
+                        )
+                    ]
+                if matches:
                     issues.append((str(rel), no, label))
         if windows:
             compact = re.sub(r"\s+", "", text)
@@ -105,13 +121,13 @@ def scan(root, book=None):
 def main():
     parser = argparse.ArgumentParser(description="扫描导出快照；发现问题返回非零。")
     parser.add_argument("root", type=Path)
-    parser.add_argument("--book", type=Path, help="可选的正文目录；仅在本地比对，不输出内容")
+    parser.add_argument("--book", type=Path)
     args = parser.parse_args()
-    if not args.root.is_dir():
-        parser.error("扫描目录不存在")
-    if args.book and not args.book.is_dir():
-        parser.error("正文目录不存在")
-    issues = scan(args.root.resolve(), args.book)
+    if not args.root.is_dir() or (args.book and not args.book.is_dir()):
+        parser.error("扫描目录或正文目录不存在")
+    terms = load_terms()
+    print("已加载私有词表" if terms else "未加载私有词表")
+    issues = scan(args.root.resolve(), args.book, terms=terms or ())
     for path, line, label in issues:
         print(f"{path}:{line}: {label}")
     print(f"共 {len(issues)} 项；正文比对：{'已执行' if args.book else '未提供正文'}")

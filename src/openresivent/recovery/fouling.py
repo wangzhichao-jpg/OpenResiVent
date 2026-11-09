@@ -34,6 +34,37 @@ def replacement_period(
     return dust_for_resistance_ratio(ratio, model) / rate
 
 
+def mass_balance_period(
+    mass: float,
+    concentration: float,
+    mean_flow: float,
+    *,
+    capture_efficiency: float = 1.0,
+    duty_fraction: float = 1.0,
+    particulate: str = "PM10",
+) -> dict:
+    """目标积尘 kg、浓度 kg/m³、运行平均风量 m³/s → 日历周期 s。
+
+    捕集率和运行时间比例均为无量纲；PM10/PM2.5 标识浓度口径，不推断捕集率。
+    风量平均值须覆盖该周期的实际运行工况；公式不模拟动态风量或粒径分布。
+    """
+    values = (mass, concentration, mean_flow, capture_efficiency, duty_fraction)
+    if (
+        not all(math.isfinite(x) and x > 0 for x in values)
+        or capture_efficiency > 1
+        or duty_fraction > 1
+        or particulate not in ("PM10", "PM2.5")
+    ):
+        raise ValueError("质量守恒参数或颗粒物口径无效")
+    seconds = mass / (concentration * mean_flow * capture_efficiency * duty_fraction)
+    return {
+        "period_s": seconds,
+        "particulate": particulate,
+        "capture_efficiency": capture_efficiency,
+        "duty_fraction": duty_fraction,
+    }
+
+
 def exchanger_regression(
     outdoor_t: float,
     extract_t: float,

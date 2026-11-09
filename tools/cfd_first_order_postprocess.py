@@ -3,12 +3,12 @@
 import json
 import re
 import sys
-from pathlib import Path
 
+from openresivent.cfd.config import case_root
 from openresivent.cfd.postprocess import patch_flux, read_vtk
 from openresivent.cfd.template import gci
 
-ROOT = Path.home() / "data/research/cfd/openresivent"
+ROOT = case_root()
 
 
 def main():
@@ -17,7 +17,7 @@ def main():
     for kind in ("upper", "lower"):
         rows = []
         for scale in (1, 2, 4):
-            name = f"p304-{kind}-{scale}" + ("-r2" if scale > 1 else "")
+            name = f"first-order-{kind}-{scale}" + ("-continued" if scale > 1 else "")
             p = ROOT / name
             log = (p / "log.simpleFoam").read_text()
             converged = bool(re.search(r"SIMPLE solution converged", log))
@@ -46,7 +46,7 @@ def main():
         p = ROOT / rows[-1]["case"]
         (p / "summary.json").write_text(json.dumps(rows[-1], ensure_ascii=False, indent=2) + "\n")
         output[kind] = {"rows": rows, "gci": convergence}
-    target = ROOT / "p304-convergence.json"
+    target = ROOT / "first-order-convergence.json"
     target.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n")
     print(target)
 

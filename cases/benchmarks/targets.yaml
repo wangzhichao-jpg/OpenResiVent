@@ -73,39 +73,39 @@ B05:
   value: 0.5345224838248488
   unit: '1'
   source: '开发方案8.2 B05；二次曲线 sqrt(1-200/280)，书稿四舍五入53.5%'
-P304_A06:
+cfd_plug_flow:
   value: 6.0
   unit: s
   source: '示例 A6；活塞流通道长度3 m、速度0.5 m/s，L/U解析解'
-P302_A05:
+network_nonisothermal_openings:
   value: 0.371454
   unit: kg/s
   source: '示例 A5；双孔各0.5 m2，Cd=0.6，热压高度3 m，室内293.15 K、室外283.15 K'
-P302_A08_A09:
+product_sensible_exchange:
   values: [0.75, 0.9375]
   unit: '1'
   source: '示例 A8-A9；等流与非等流最小质量流量归一化显热效率'
-P302_A10:
+product_specific_fan_power:
   values: [0.30, 1080]
   unit: 'W/(m3/h), W/(m3/s)'
   source: '示例 A10；45 W、150 m3/h'
-P302_A11:
+product_purification_grades:
   values: [3.0, 2.9]
   unit: 'm3/(W h)'
   source: '示例 A11；双向流，150 m3/h、45 W、效率90%及87%'
-P302_A12:
+product_fan_similarity:
   values: [198, 96.8, 59.895]
   unit: 'm3/h, Pa, W'
   source: '示例 A12；风机相似定律，转速比1.1'
-P301_A05:
+natural_single_opening:
   value: 0.142923
   unit: m3/s
   source: '示例 A5；CIBSE单开口近似，Cd=0.6、A=1 m2、h=1.5 m、温差10 K、均温288.15 K'
-P301_A06:
+natural_double_opening:
   values: [0.353553, 0.303185]
   unit: 'm2, m3/s'
   source: '示例 A6；两个0.5 m2开口、间距3 m、Cd=0.6、温差10 K、均温288.15 K'
-P301_A08:
+turbine_cowl_performance:
   values: [1.2, 0.090909]
   unit: '1'
   source: '示例 A8；风帽/自然开口和相对静态风帽增率'

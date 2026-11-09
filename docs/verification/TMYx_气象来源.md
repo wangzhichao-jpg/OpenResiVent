@@ -13,4 +13,4 @@
 
 **许可说明：**站点提供免费下载及引用建议（Lawrie, Linda K. and Drury B. Crawley, Climate.OneBuilding.org）；站点页声明版权，现未核实可再分发授权或独立许可证，不能仅凭免费获得认定可再分发。NOAA ISD 和 ERA5 各自还须遵守来源条件。本项目因此不随软件分发气象文件，仅提供用户自行获取方式；发布前应由复核人员复核再分发权限。这比开发方案中的“可再分发”假定更保守，不改变书稿。
 
-下载任务记录：`journalctl --user -u orv-p203-weather`。未配置 `ORV_WEATHER_DIR` 的自动测试仅跳过真实气象读取，仍执行合成 EPW 和能量基准。
+下载任务记录：`journalctl --user -u orv-energy-study-weather`。未配置 `ORV_WEATHER_DIR` 的自动测试仅跳过真实气象读取，仍执行合成 EPW 和能量基准。

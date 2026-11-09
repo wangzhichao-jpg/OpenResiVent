@@ -37,7 +37,7 @@ def render(module: str, d: dict, r: dict) -> str:
             f"| {label} | ${symbol}$ | {names.get(str(value), value)} | {unit} | 假设，需作者确认 |"
         )
     lines += ["", "**第一步：计算。**"]
-    if module == "p303_vav":
+    if module == "vav_comparison":
         lines += [
             "以论文图11风机压力与功率曲线读图为基准，依据相似定律对同一风机调速，假设额定点实测功率为96 W；理想调速不包含变频器及电机低速效率损失。",
             "| 积尘 g | PID 风量 m³/h | VAV 风量 m³/h | PID 功率 W | VAV 功率 W | 功率降幅 |",
@@ -68,7 +68,7 @@ def render(module: str, d: dict, r: dict) -> str:
             "**敏感性说明：** 上表列出不同积尘量的影响，实际性能需设备测试。",
             "本例不涉及条文判定。",
         ]
-    elif module == "p303_guangzhou":
+    elif module == "natural_cooling":
         lines += [
             r"$$Q=\dot m(h_o-h_i),\quad E=\sum\max(0,Q)\Delta t$$",
             "书稿4.6.2引用的广州连续机械通风耗冷量增加约16%为 DeST-h 整栋建筑模拟的文献值，不由本算例计算。",

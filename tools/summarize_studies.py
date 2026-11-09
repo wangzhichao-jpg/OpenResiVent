@@ -54,7 +54,7 @@ def write_table(path, header, body):
 
 def main():
     """按气密性和设备风量整理两户型补风结果。"""
-    root = ROOT / "build/p309"
+    root = ROOT / "build/parameter-sweep"
     data = rows(root / "makeup-study/samples.csv")
     index = {(float(x["n50_per_h"]), int(x["hood_m3_h"]), int(x["bedrooms"])): x for x in data}
     body = []

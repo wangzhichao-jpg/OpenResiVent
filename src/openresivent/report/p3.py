@@ -62,7 +62,7 @@ def render(module: str, d: dict, r: dict) -> str:
             "CIBSE 单开口和双开口热压近似：",
             r"$$Q_1=\frac{C_dA}{3}\sqrt{\frac{gh\Delta T}{\bar T}},\quad A^*=\left(A_1^{-2}+A_2^{-2}\right)^{-1/2},\quad Q_2=C_dA^*\sqrt{\frac{2gh\Delta T}{\bar T}}$$",
             f"单开口 {r['single_m3_s']:.6f} m³/s；双开口等效面积 {r['double']['equivalent_area_m2']:.6f} m²、流量 {r['double']['flow_m3_s']:.6f} m³/s。",
-            f"书稿原式 (2-7)、(2-8) 的直接代入分别为 {r['book_single']:.6f}、{r['book_double']:.6f} m³/s（书稿原式，量纲待核；双孔按单个开口面积代入）。",
+            f"书稿对照式 (2-7)、(2-8) 带根号，计算分别为 {r['book_single']:.6f}、{r['book_double']:.6f} m³/s；双孔采用串联等效面积。经验系数含单位，结果与 CIBSE 式因系数及参考温度不同而有差异。",
             f"M2 纯热压入口/出口分别 {n['flows'][0]['volume_flow']:.6f}/{n['flows'][1]['volume_flow']:.6f} m³/s；含风压联合时分别 {combined['flows'][0]['volume_flow']:.6f}/{combined['flows'][1]['volume_flow']:.6f} m³/s。因两侧密度不同，体积流量不同而质量守恒；孔口质量流量按上游空气密度修正。",
             "**敏感性说明：** 流量系数取0.8、1.2倍时单开口风量为 "
             + "、".join(f"{v:.4f}" for v in r["sensitivity"].values())

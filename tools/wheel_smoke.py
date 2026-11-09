@@ -1,4 +1,4 @@
-"""在源码目录之外对已安装 wheel 执行五个命令的本机冒烟。"""
+"""在源码目录之外对已安装 wheel 执行七项本机冒烟。"""
 
 import json
 import os
@@ -13,6 +13,8 @@ import urllib.request
 from pathlib import Path
 
 import yaml
+
+from openresivent import __version__
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -62,7 +64,7 @@ def main():
         version = subprocess.check_output(
             [str(binary), "--version"], cwd=tmp, env=env, text=True
         ).strip()
-        if version != "0.5.0rc1":
+        if version != __version__:
             raise RuntimeError("版本不符")
         subprocess.run(
             [str(binary), "run", str(tmp / "case.yaml"), "--out", str(tmp / "run")],
@@ -70,6 +72,24 @@ def main():
             env=env,
             check=True,
         )
+        subprocess.run(
+            [
+                str(binary),
+                "check",
+                str(ROOT / "cases/workflows/household_example.yaml"),
+                "--out",
+                str(tmp / "check"),
+            ],
+            cwd=tmp,
+            env=env,
+            check=True,
+        )
+        check = json.loads((tmp / "check/result.json").read_text())
+        if (
+            abs(check["ventilation"]["design"] * 3600 - 194.0) > 1e-9
+            or not (tmp / "check/report.docx").is_file()
+        ):
+            raise RuntimeError("一户校核结果或报告异常")
         value = json.loads((tmp / "run/ex2-01.json").read_text())["flow_m3_s"] * 3600
         if abs(value - 90) > 1e-10:
             raise RuntimeError("算例结果不符")
@@ -105,6 +125,16 @@ def main():
                 "Content-Security-Policy", ""
             ):
                 raise RuntimeError("页面或 CSP 异常")
+            match = re.search(rb'<script[^>]+src="([^"]+)"', page)
+            if not match:
+                raise RuntimeError("前端脚本缺失")
+            script, _ = wait_http(f"http://127.0.0.1:{port}" + match.group(1).decode(), process)
+            help_page, _ = wait_http(f"http://127.0.0.1:{port}/browser-runtime-help", process)
+            if (
+                "浏览器运行时需单独准备".encode() not in script
+                or "浏览器运行时需单独准备".encode() not in help_page
+            ):
+                raise RuntimeError("浏览器模式提示或准备说明缺失")
         finally:
             process.terminate()
             process.wait(timeout=15)
@@ -132,7 +162,9 @@ def main():
                 process.terminate()
                 process.wait(timeout=15)
     print("wheel 环境：", package)
-    print("版本、run、serve、sweep、desktop 五项通过；示例风量", value, "m³/h。")
+    print(
+        "版本、run、check、serve、sweep、desktop、浏览器模式提示七项通过；示例风量", value, "m³/h。"
+    )
 
 
 if __name__ == "__main__":

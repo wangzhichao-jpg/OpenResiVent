@@ -1,4 +1,4 @@
-"""\u0057\u004f\u002d\u00502-01 四个书稿算例从 YAML 至 JSON/片段的端到端校核。"""
+"""四个书稿算例从 YAML 至 JSON/片段的端到端校核。"""
 
 import json
 from pathlib import Path

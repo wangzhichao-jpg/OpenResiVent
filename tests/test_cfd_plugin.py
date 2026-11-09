@@ -15,6 +15,44 @@ from openresivent.cfd.template import (
 from openresivent.measure.ventilation import air_change_efficiency
 
 
+def test_cfd_root_default_and_override(tmp_path, monkeypatch):
+    from pathlib import Path
+
+    from openresivent.cfd.config import case_root
+
+    monkeypatch.delenv("ORV_CFD_DIR", raising=False)
+    assert case_root() == (Path.home() / ".local/share/openresivent/cfd").resolve()
+    monkeypatch.setenv("ORV_CFD_DIR", str(tmp_path))
+    assert case_root() == tmp_path.resolve()
+
+
+def test_submit_configured_command(tmp_path, monkeypatch):
+    import subprocess
+
+    seen = []
+    monkeypatch.setenv("ORV_CFD_DIR", str(tmp_path))
+    monkeypatch.setenv("ORV_FOAM_CMD", "/opt/foam wrapper")
+    monkeypatch.setattr(subprocess, "run", lambda args, **kwargs: seen.append((args, kwargs)))
+    case = tmp_path / "case"
+    case.mkdir()
+    submit("example", case)
+    args, opts = seen[0]
+    assert args[:2] == ["systemd-run", "--user"] and opts["check"]
+    assert "flock" in args and str(case / ".openresivent.lock") in args
+    assert 'blockMesh() { command /opt/foam wrapper blockMesh "$@"; }' in args[-1]
+    monkeypatch.delenv("ORV_FOAM_CMD")
+    submit("direct", case)
+    assert 'blockMesh() { command blockMesh "$@"; }' in seen[-1][0][-1]
+
+
+def test_configured_cfd_missing_fails(tmp_path, monkeypatch):
+    from openresivent.cfd.examples import comparison
+
+    monkeypatch.setenv("ORV_CFD_DIR", str(tmp_path))
+    with pytest.raises(FileNotFoundError, match="missing-upper"):
+        comparison({"upper": "missing-upper/summary.json", "lower": "missing-lower/summary.json"})
+
+
 def test_comparison(tmp_path, monkeypatch):
     import json
 
@@ -40,10 +78,10 @@ def test_comparison(tmp_path, monkeypatch):
     from openresivent.core.runner import execute
 
     c = load_case(Path(__file__).resolve().parents[1] / "cases/book/ch06/ex6-07.yaml")
-    (tmp_path / "p305-upper-4-age-polish").mkdir()
-    (tmp_path / "p305-lower-4-age-polish").mkdir()
-    (tmp_path / "p305-upper-4-age-polish/summary.json").write_text(json.dumps(x))
-    (tmp_path / "p305-lower-4-age-polish/summary.json").write_text(json.dumps(x))
+    (tmp_path / "second-order-upper-4-age-polish").mkdir()
+    (tmp_path / "second-order-lower-4-age-polish").mkdir()
+    (tmp_path / "second-order-upper-4-age-polish/summary.json").write_text(json.dumps(x))
+    (tmp_path / "second-order-lower-4-age-polish/summary.json").write_text(json.dumps(x))
     output, _ = execute(c, Path("."))
     assert output["upper"]["average_age_s"] == 750
     with pytest.raises(ValueError):

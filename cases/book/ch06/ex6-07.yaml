@@ -1,4 +1,4 @@
 meta: {id: ex6-07, title: 卧室送排风布置与空气龄, book_ref: 书稿6.1.1；房间和边界为示例值需作者确认, rules: []}
 module: cfd_compare
-input: {upper: p305-upper-4-age-polish/summary.json, lower: p305-lower-4-age-polish/summary.json}
+input: {upper: second-order-upper-4-age-polish/summary.json, lower: second-order-lower-4-age-polish/summary.json}
 output: {markdown: true}

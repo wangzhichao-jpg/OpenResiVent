@@ -25,7 +25,7 @@ async def content_security(request: Request, call_next):
     """仅允许同源资源；组件库运行时样式需要内联样式。"""
     response = await call_next(request)
     response.headers["Content-Security-Policy"] = (
-        "default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'"
+        "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'"
     )
     response.headers["X-Content-Type-Options"] = "nosniff"
     return response
@@ -36,6 +36,7 @@ ALLOWED = (
     "co2",
     "ventrate",
     "dwelling_pressure",
+    "makeup_design",
     "ductless",
     "shaft",
     "product_test",
@@ -99,6 +100,15 @@ def _validate_input(case: Case) -> None:
             "supply_room": str,
             "exhaust_room": str,
             "bath_fan_room": str,
+            "threshold_pa": float,
+        },
+        "makeup_design": {
+            "bedrooms": int,
+            "volume_m3": float,
+            "n50_per_h": float,
+            "hood_m3_h": float,
+            "fresh_supply_m3_h": float,
+            "fresh_exhaust_m3_h": float,
             "threshold_pa": float,
         },
         "ductless": {
@@ -413,6 +423,40 @@ def _prepare(case: Case, root: Path) -> Path:
     return path
 
 
+@app.post("/household-check")
+def household_check(payload: dict):
+    """运行一户校核；各子算例复用现有输入校验。"""
+    from pydantic import ValidationError
+
+    from openresivent.household_check import HouseholdCheck, calculate
+
+    try:
+        data = HouseholdCheck.model_validate(payload)
+        _validate_input(data.ventilation)
+        _validate_input(data.dwelling)
+        return calculate(data)
+    except (ValidationError, ValueError, KeyError, TypeError, ArithmeticError) as exc:
+        raise HTTPException(status_code=422, detail="一户校核输入无效") from exc
+
+
+@app.post("/household-check/report")
+def household_check_report(payload: dict):
+    """生成一户合并报告；结果基于本次输入重新计算。"""
+    from tempfile import TemporaryDirectory
+
+    from openresivent.household_check import HouseholdCheck, save_report
+
+    result = household_check(payload)
+    data = HouseholdCheck.model_validate(payload)
+    with TemporaryDirectory(prefix="orv-check-") as folder:
+        output = save_report(data, result, Path(folder) / "report.docx")
+        content = output.read_bytes()
+    return Response(
+        content,
+        media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    )
+
+
 @app.get("/modules")
 def modules():
     return {"modules": list(ALLOWED), "reports": ["design", "shaft", "commissioning"]}
@@ -632,6 +676,14 @@ def sweep_download(job_id: str, filename: str, request: Request):
     if path.is_symlink() or not path.is_file():
         raise HTTPException(status_code=404, detail="文件不存在")
     return FileResponse(path, filename=filename)
+
+
+@app.get("/browser-runtime-help", response_class=HTMLResponse, include_in_schema=False)
+def browser_runtime_help():
+    """安装包不含浏览器运行时；提供本机可访问的准备说明。"""
+    return HTMLResponse(
+        "<h1>浏览器运行时需单独准备</h1><p>安装版只包含本机服务前端。浏览器本地计算需要源码目录及单独准备的运行时；请参阅源码中的 docs/site/浏览器版.md。运行时准备完成后按该文档构建并使用本地前端；请勿将无认证服务暴露公网。</p>"
+    )
 
 
 @app.get("/{asset_path:path}", include_in_schema=False)

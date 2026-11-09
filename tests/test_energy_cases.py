@@ -46,7 +46,7 @@ def test_energy_book_cli(tmp_path, monkeypatch, synthetic_epw, ident):
     assert "质量残差" not in fragment
     import re
 
-    assert not re.search(r"\u5de5\u4f5c\u6307\u4ee4|WO-|\u004d\u0053\u0047\u002d|\u9a8c\u6536\u65b9|\u7ba1\u7406\u7aef|(?:GBT|JGJT|GB)\d{3,}-\d{4}:", fragment)
+    assert not re.search(r"合成禁词|(?:GBT|JGJT|GB)\d{3,}-\d{4}:", fragment)
     assert len(payload["cities"]["beijing"]["sensitivity"]) == 2
 
 

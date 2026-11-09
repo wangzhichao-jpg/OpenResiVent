@@ -188,10 +188,10 @@ def render(title: str, module: str, inputs: dict, result: dict) -> str:
         from openresivent.cfd.report import render as render_cfd
 
         return _scientific_latex(render_cfd(result))
-    if module.startswith("p303_"):
-        from openresivent.report.p303 import render as render_p303
+    if module in ("vav_comparison", "natural_cooling", "ductless"):
+        from openresivent.report.operation_comparison import render as render_operation
 
-        return _scientific_latex(render_p303(module, inputs, result))
+        return _scientific_latex(render_operation(module, inputs, result))
     if module == "product_test":
         from openresivent.report.product import render as render_product
 

@@ -13,7 +13,7 @@ from openresivent.recovery.fouling import bounded_exchanger, sun_dynamic_doublin
 def main():
     """读取 ORV_WEATHER_DIR，输出 build 下 JSON，绝不写书稿。"""
     folder = Path(os.environ["ORV_WEATHER_DIR"])
-    out = Path(__file__).resolve().parents[1] / "build/p204/m4-trends.json"
+    out = Path(__file__).resolve().parents[1] / "build/recovery-study/m4-trends.json"
     concentrations = {"beijing": 65, "shanghai": 49, "harbin": 68}
     values = {"dynamic": sun_dynamic_doubling(), "cities": {}}
     for city, pm10 in concentrations.items():

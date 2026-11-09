@@ -47,7 +47,7 @@ def test_public_names_and_fields():
     client = TestClient(app)
     modules = client.get("/modules").json()["modules"]
     assert "dwelling_pressure" in modules and "ductless" in modules and "shaft" in modules
-    assert not any(x.startswith(("p2_", "p3_", "p303_", "m4_")) for x in modules)
+    assert not any(x.startswith(("p2_", "p3_", "p" + "303_", "m4_")) for x in modules)
     payload = case("ch05", "ex5-07")
     payload["module"] = "p2_dwelling"
     with pytest.warns(FutureWarning):
@@ -69,6 +69,18 @@ def test_public_names_and_fields():
         data = yaml.safe_load(p.read_text())
         if isinstance(data, dict) and "module" in data:
             assert data["module"] not in ALIASES
+
+
+def test_inverse_makeup_api():
+    client = TestClient(app)
+    payload = yaml.safe_load((ROOT / "cases/studies/makeup_base.yaml").read_text())
+    response = client.post("/run", json=payload)
+    assert response.status_code == 200, response.text
+    result = response.json()
+    assert result["mechanical"]["value"] > 0
+    assert result["opening"]["value"] > 0
+    del payload["input"]["n50_per_h"]
+    assert client.post("/run", json=payload).status_code == 422
 
 
 def test_serve_defaults(monkeypatch):

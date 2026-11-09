@@ -30,6 +30,37 @@ def double_opening(
     }
 
 
+def book_single_opening(area: float, height: float, delta_t: float) -> float:
+    """式(2-7)：开口面积 m²、高度 m、温差 K → 风量 m³/s。"""
+    if (
+        not all(math.isfinite(x) for x in (area, height, delta_t))
+        or min(area, height) <= 0
+        or delta_t < 0
+    ):
+        raise ValueError("单开口参数无效")
+    return 0.04 * area * math.sqrt(delta_t * height)
+
+
+def book_double_opening(a1: float, a2: float, height: float, delta_t: float) -> float:
+    """式(2-8)：两孔面积 m²、高差 m、温差 K → 风量 m³/s。"""
+    if (
+        not all(math.isfinite(x) for x in (a1, a2, height, delta_t))
+        or min(a1, a2, height) <= 0
+        or delta_t < 0
+    ):
+        raise ValueError("双开口参数无效")
+    area = 1 / math.hypot(1 / a1, 1 / a2)
+    return 0.15 * area * math.sqrt(delta_t * height)
+
+
+def book_opening_heights(area: float) -> dict:
+    """迎风面积 m² → 临界高度 Hc 与 Hk，均为 m。"""
+    if not math.isfinite(area) or area <= 0:
+        raise ValueError("迎风面积必须为正")
+    root = math.sqrt(area)
+    return {"hc_m": 0.3 * root, "hk_m": root}
+
+
 def coupled(
     a1: float,
     a2: float,

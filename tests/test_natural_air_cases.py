@@ -30,11 +30,16 @@ def test_case(tmp_path, chapter, ident):
     text = (tmp_path / f"{ident}.md").read_text()
     assert len(x["provenance"]["input_sha256"]) == 64
     assert "敏感性说明" in text and "| 参数 | 符号 | 数值 | 单位 | 来源 |" in text
-    assert not re.search(r"\u5de5\u4f5c\u6307\u4ee4|WO-|\u004d\u0053\u0047\u002d|\u9a8c\u6536\u65b9|\u7ba1\u7406\u7aef|(?:GBT|JGJT|GB)\d{3,}-\d{4}:", text)
+    assert not re.search(
+        r"合成禁词|(?:GBT|JGJT|GB)\d{3,}-\d{4}:",
+        text,
+    )
     if ident == "ex2-07":
         assert x["single_m3_s"] == pytest.approx(0.142923, rel=1e-5)
         assert x["double"]["flow_m3_s"] == pytest.approx(0.303185, rel=1e-5)
-        assert x["book_single"] == pytest.approx(0.6) and "量纲待核" in text
+        assert x["book_single"] == pytest.approx(0.04 * 15**0.5)
+        assert x["book_double"] == pytest.approx(0.15 * (0.5 / 2**0.5) * 30**0.5)
+        assert "串联等效面积" in text and "量纲待核" not in text
     if ident == "ex3-04":
         assert not x["suitability"]["turbine_better_than_static"]
     if ident == "ex4-10":

@@ -13,6 +13,7 @@ from openresivent.recovery.fouling import (
     collected_dust,
     dust_for_resistance_ratio,
     exchanger_regression,
+    mass_balance_period,
     replacement_period,
     snapshot,
     sun_dynamic_doubling,
@@ -51,6 +52,35 @@ def test_dust_and_replacement():
         replacement_period(0, 1, 0.1)
     with pytest.raises(ValueError):
         dust_for_resistance_ratio(0.5)
+
+
+@pytest.mark.parametrize(("concentration", "published_days"), [(90, 49), (20, 218)])
+def test_published_mass_balance_endpoints(concentration, published_days):
+    result = mass_balance_period(0.0342, concentration * 1e-9, 323.75 / 3600)
+    assert result["period_s"] / 86400 == pytest.approx(published_days, rel=0.05)
+    assert result["particulate"] == "PM10"
+
+
+def test_mass_balance_particulate_and_boundaries():
+    pm25 = mass_balance_period(0.0342, 45e-9, 323.75 / 3600, particulate="PM2.5")
+    assert pm25["period_s"] / 86400 == pytest.approx(97.8120978, rel=1e-6)
+    baseline = mass_balance_period(0.0342, 65e-9, 323.75 / 3600)["period_s"]
+    assert baseline / 86400 == pytest.approx(67.716, rel=0.001)
+    assert mass_balance_period(0.0342, 65e-9, 323.75 / 3600, duty_fraction=0.5)[
+        "period_s"
+    ] == pytest.approx(baseline * 2)
+    for kwargs in (
+        {"mass": 0},
+        {"concentration": float("nan")},
+        {"mean_flow": 0},
+        {"duty_fraction": 1.1},
+        {"capture_efficiency": 0},
+        {"particulate": "PM1"},
+    ):
+        args = {"mass": 0.0342, "concentration": 45e-9, "mean_flow": 0.1}
+        args.update(kwargs)
+        with pytest.raises(ValueError):
+            mass_balance_period(**args)
 
 
 def test_paper2_dynamic_reading():

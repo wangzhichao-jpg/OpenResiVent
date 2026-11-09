@@ -2,15 +2,13 @@
 
 import hashlib
 import json
-import os
-from pathlib import Path
+
+from openresivent.cfd.config import case_root
 
 
 def comparison(data: dict) -> dict:
     """从 CFD 目录读取两份已核验的 JSON 指标。"""
-    base = Path(
-        os.environ.get("ORV_CFD_DIR", Path.home() / "data/research/cfd/openresivent")
-    ).resolve()
+    base = case_root()
     result = {}
     for name in ("upper", "lower"):
         path = (base / data[name]).resolve()

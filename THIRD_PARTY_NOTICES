@@ -1,6 +1,36 @@
 # 第三方依赖说明
 
-本清单列出独立 wheel 安装环境、前端锁文件全部依赖（含开发及可选平台包）和当前 Linux 桌面打包分析，版本为本机候选构建的解析结果，并非未来安装时的锁定保证。完整许可证文本按依赖从已安装发行包和前端包收集于本机构建目录 `build/p310/third-party-licenses/`；分发任何二进制前须随对应产物附带这些文本并复核最终依赖。SBOM 分别为 `docs/site/sbom-python.json` 和 `docs/site/sbom-frontend.json`，前者对应 wheel 独立环境，后者仅前端运行依赖。前端表包含开发依赖，所以比运行 SBOM 范围更广。
+## 浏览器计算原型依赖（仅供本地测试）
+
+Pyodide npm 包通过锁文件的完整性校验获取；下面的运行时包按随该版本发布的锁文件 SHA256 验证。原版 Pyodide 文件不作修改；MPL-2.0 许可全文保存在 `web/licenses/MPL-2.0.txt`，使用时须保留其文件级源码可得性及相关声明。原版运行时嵌有默认远程地址，加载包前切换到本地源，静态扫描仅按文件路径、SHA256 和地址的精确组合放行该上游引用；本原型仅供本地测试。
+
+| 名称 | 版本 | 许可 |
+|---|---|---|
+| Pyodide | 0.27.7 | MPL-2.0 |
+| CPython | 3.12.7 | PSF-2.0（含随版第三方组件声明，须复核） |
+| NumPy | 2.0.2 | BSD-3-Clause，含随包第三方声明 |
+| SciPy | 1.14.1 | BSD-3-Clause，含随包第三方声明 |
+| OpenBLAS | 0.3.26 | BSD-3-Clause |
+| Pydantic | 2.10.5 | MIT |
+| pydantic-core | 2.27.2 | MIT |
+| PyYAML | 6.0.2 | MIT |
+| annotated-types | 0.6.0 | MIT |
+| typing-extensions | 4.11.0 | PSF-2.0 |
+| ws（npm，Node 支持） | 8.22.2 | MIT |
+| hiwire（运行时编译依赖） | 上游固定提交 `6a1e67280a15d929ebeceee54a6358c9c8d5f697` | MPL-2.0 |
+| libffi（运行时编译依赖） | 上游固定提交 `f08493d249d2067c8b3207ba46693dd858f95db3` | MIT |
+| Emscripten 运行时 | 3.1.58 | MIT 或 NCSA |
+| zlib（运行时编译依赖） | 1.2.13 | Zlib |
+| bzip2（运行时编译依赖） | 1.0.6 | bzip2-1.0.6 |
+| Expat（CPython 内置） | CPython 3.12.7 随附版本 | MIT |
+| libmpdec（CPython 内置） | CPython 3.12.7 随附版本 | BSD-2-Clause |
+| HACL* SHA2（CPython 内置） | CPython 3.12.7 随附版本 | MIT |
+| stackframe / error-stack-parser（上游 vendored） | 随 Pyodide 0.27.7 | MIT |
+
+构建时从各 wheel 原样提取其包含的许可证到本地运行时的 `licenses/`；运行时核心、编译器端口、Python 及 OpenBLAS 许可原文或源码中的完整版权许可段存于 `web/licenses/`。核心组件清单依据 Pyodide 0.27.7 上游构建脚本、固定依赖版本和 CPython 3.12.7 源码核查；Pyodide 和 hiwire 的 MPL 文件保留原样，分发其可执行形式时须同时满足源码可得性与许可通知义务。zlib/bzip2 原版许可中包含上游作者公开联系方式，公开导出扫描仅按具体文件路径、全文 SHA256 及各地址精确放行，不是工程数据或本机用户信息。此清单针对本次原型及其已审查上游构建配置；未来升级或分发应重新核对最终构建物、全部第三方通知和许可义务。
+
+
+本清单和所附软件物料清单反映 0.5.0rc1 的独立 wheel 安装环境、前端锁文件全部依赖（含开发及可选平台包）和当时 Linux 桌面打包分析；当前开发版或未来发行物须重新生成并复核，版本并非未来安装时的锁定保证。完整许可证文本按依赖从已安装发行包和前端包收集于本机构建目录 `build/p310/third-party-licenses/`；分发任何二进制前须随对应产物附带这些文本并复核最终依赖。SBOM 分别为 `docs/site/sbom-python.json` 和 `docs/site/sbom-frontend.json`，前者对应 wheel 独立环境，后者仅前端运行依赖。前端表包含开发依赖，所以比运行 SBOM 范围更广。
 
 项目以 Apache-2.0 许可代码。外部流场求解程序作为独立进程调用，不含在本程序或桌面包中；未发现无链接例外的 GPL/AGPL 组件作为 Python 或前端依赖被链接。此结论限本次清单与二进制检查，不等于对未来解析版本的保证。NumPy/SciPy 官方包可能包含 BSD 许可 OpenBLAS 与带 GCC Runtime Library Exception 的 libgfortran/libquadmath；它们是可替换的动态库，不能简单表述为“不含任何 GPL 文字”。桌面包中的系统 OpenSSL、Python 运行库、libstdc++ 等须按实际系统发行包附带许可；本机候选包未作为可分发发行件。
 

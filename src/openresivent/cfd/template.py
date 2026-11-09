@@ -4,6 +4,8 @@ import math
 from dataclasses import dataclass
 from pathlib import Path
 
+from openresivent.cfd.config import case_root
+
 HEADER = "// OpenResiVent 自行编写；OpenFOAM 作为外部进程，非官方教程文件。\n"
 
 
@@ -320,38 +322,58 @@ def create_channel(path: Path, *, length: float = 3, speed: float = 0.5, cells: 
     return p
 
 
-def submit_channel(name: str, path: Path) -> None:
-    """通过 foam-job 提交给定均匀速度的通道标量计算。"""
+def _submit_script(name: str, path: Path, script: str) -> None:
+    """用用户级任务和案例锁启动外部命令；可配置命令包装器。"""
+    import os
     import re
+    import shlex
     import subprocess
 
     if not re.fullmatch(r"[a-z0-9][a-z0-9-]{0,50}", name):
         raise ValueError("任务名无效")
     path = Path(path).resolve(strict=True)
-    if not path.is_relative_to((Path.home() / "data/research/cfd/openresivent").resolve()):
-        raise ValueError("案例目录无效")
-    script = 'set -e; blockMesh > log.blockMesh 2>&1; checkMesh > log.checkMesh 2>&1; grep -q "Mesh OK" log.checkMesh; cp system/controlDict.age system/controlDict; scalarTransportFoam > log.scalar 2>&1; foamToVTK -latestTime > log.vtk 2>&1'
+    if not path.is_dir() or not path.is_relative_to(case_root()):
+        raise ValueError("案例目录须位于专用 CFD 目录")
+    prefix = shlex.split(os.environ.get("ORV_FOAM_CMD", ""))
+    commands = (
+        "blockMesh",
+        "checkMesh",
+        "simpleFoam",
+        "foamListTimes",
+        "scalarTransportFoam",
+        "foamToVTK",
+    )
+    definitions = "\n".join(
+        f'{command}() {{ command {shlex.join([*prefix, command])} "$@"; }}' for command in commands
+    )
     subprocess.run(
-        [str(Path.home() / ".local/bin/foam-job"), "start", name, str(path), "bash", "-c", script],
+        [
+            "systemd-run",
+            "--user",
+            "--collect",
+            f"--unit=openresivent-cfd-{name}",
+            f"--working-directory={path}",
+            "flock",
+            "--nonblock",
+            str(path / ".openresivent.lock"),
+            "bash",
+            "-c",
+            definitions + "\n" + script,
+        ],
         check=True,
     )
+
+
+def submit_channel(name: str, path: Path) -> None:
+    """提交给定均匀速度的通道标量计算。"""
+    script = 'set -e; blockMesh > log.blockMesh 2>&1; checkMesh > log.checkMesh 2>&1; grep -q "Mesh OK" log.checkMesh; cp system/controlDict.age system/controlDict; scalarTransportFoam > log.scalar 2>&1; foamToVTK -latestTime > log.vtk 2>&1'
+    _submit_script(name, path, script)
 
 
 def submit(name: str, path: Path) -> None:
-    """用 foam-job 提交已生成案例；后台运行，禁止覆盖或重复启动。"""
-    import re
-    import subprocess
-
-    if not re.fullmatch(r"[a-z0-9][a-z0-9-]{0,50}", name):
-        raise ValueError("任务名无效")
-    path = Path(path).resolve(strict=True)
-    if not path.is_relative_to((Path.home() / "data/research/cfd/openresivent").resolve()):
-        raise ValueError("案例目录须位于专用 CFD 目录")
+    """通过用户级任务提交已生成案例；以案例锁防止重复运行。"""
     script = 'set -e; blockMesh > log.blockMesh 2>&1; checkMesh > log.checkMesh 2>&1; grep -q "Mesh OK" log.checkMesh; simpleFoam > log.simpleFoam 2>&1; last=$(foamListTimes -latestTime); cp "$last/U" "$last/phi" 0/; cp system/controlDict.age system/controlDict; if [ -f 0/T.thermal ]; then cp 0/T 0/T.age; cp 0/T.thermal 0/T; cp constant/fvOptions constant/fvOptions.age; cp constant/fvOptions.thermal constant/fvOptions; scalarTransportFoam > log.thermal 2>&1; mv 10000 thermal-results; cp 0/T.age 0/T; cp constant/fvOptions.age constant/fvOptions; fi; scalarTransportFoam > log.scalar 2>&1; foamToVTK -latestTime > log.vtk 2>&1'
-    subprocess.run(
-        [str(Path.home() / ".local/bin/foam-job"), "start", name, str(path), "bash", "-c", script],
-        check=True,
-    )
+    _submit_script(name, path, script)
 
 
 def from_network(

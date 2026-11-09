@@ -16,13 +16,13 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main():
     for name in ("shaft", "makeup"):
-        folder = ROOT / "build/p309" / f"{name}-study"
+        folder = ROOT / "build/parameter-sweep" / f"{name}-study"
         spec = yaml.safe_load((ROOT / "cases/studies" / f"{name}_sweep.yaml").read_text())
         with sqlite3.connect(folder / "samples.sqlite3") as db:
             allrows = db.execute("select payload from samples order by id").fetchall()
         for i in (0, len(allrows) // 2, len(allrows) - 1):
             sample = json.loads(allrows[i][0])
-            with tempfile.TemporaryDirectory(dir=ROOT / "build/p309") as tmp:
+            with tempfile.TemporaryDirectory(dir=ROOT / "build/parameter-sweep") as tmp:
                 tmp = Path(tmp)
                 case = tmp / "sample.yaml"
                 case.write_text(yaml.safe_dump(sample["case"], allow_unicode=True))

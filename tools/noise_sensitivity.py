@@ -60,7 +60,7 @@ def sensitivity(d):
 def main():
     d = yaml.safe_load((ROOT / "cases/book/ch04/ex4-09.yaml").read_text())["input"]
     base, rows = sensitivity(d)
-    out = ROOT / "build/p309/noise_sensitivity.md"
+    out = ROOT / "build/parameter-sweep/noise_sensitivity.md"
     out.parent.mkdir(parents=True, exist_ok=True)
     lines = [
         f"基准 {base:.4f} dB(A)；每次只改变一组，衰减下限截断为零。",

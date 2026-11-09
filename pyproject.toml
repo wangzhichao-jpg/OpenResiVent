@@ -25,7 +25,7 @@ path = "src/openresivent/__init__.py"
 path = "packaging/hatch_build.py"
 
 [tool.hatch.build.targets.sdist]
-exclude = ["/AGENTS.md", "/docs/management", "/docs/plan", "/docs/inventory", "/book.lock"]
+exclude = ["/AGENTS.md", "/docs/management", "/docs/plan", "/docs/inventory", "/book.lock", "/build", "/web/node_modules", "/web/pyodide"]
 
 [tool.hatch.build.targets.wheel.force-include]
 "data/co2_activity.yaml" = "openresivent/data/co2_activity.yaml"
@@ -41,4 +41,4 @@ pythonpath = ["src"]
 
 [tool.ruff]
 line-length = 100
-extend-exclude = ["docs/management/tools"]
+extend-exclude = ["docs/management/tools", "docs/management/review"]

@@ -137,13 +137,13 @@ def execute(case: Case, case_path: Path) -> tuple[dict, dict]:
         from openresivent.cfd.examples import comparison
 
         return comparison(data), {}
-    if case.module in ("p303_vav", "p303_guangzhou", "p303_ductless"):
-        from openresivent.energy.p303 import ductless, guangzhou, vav_comparison
+    if case.module in ("vav_comparison", "natural_cooling", "ductless"):
+        from openresivent.energy.operation_comparison import ductless, guangzhou, vav_comparison
 
-        fn = {"p303_vav": vav_comparison, "p303_guangzhou": guangzhou, "p303_ductless": ductless}[
+        fn = {"vav_comparison": vav_comparison, "natural_cooling": guangzhou, "ductless": ductless}[
             case.module
         ]
-        return fn(data), ({"JGJT440-2018": "2018"} if case.module == "p303_ductless" else {})
+        return fn(data), ({"JGJT440-2018": "2018"} if case.module == "ductless" else {})
     if case.module == "product_test":
         from openresivent.measure.product import (
             exchange_efficiency,

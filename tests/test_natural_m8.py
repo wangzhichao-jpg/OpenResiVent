@@ -4,6 +4,9 @@ import pytest
 
 from openresivent.ventrate.air_distribution import indoor_outlets, jet, outdoor_intake
 from openresivent.ventrate.natural import (
+    book_double_opening,
+    book_opening_heights,
+    book_single_opening,
     coupled,
     double_opening,
     metrics,
@@ -28,6 +31,28 @@ def test_stack():
     assert coupled(0.5, 0.5, 0.6, 3, 293.15, 283.15, 3, 0.6, -0.3)["mass_residual"] < 1e-8
     with pytest.raises(ValueError):
         single_opening(0.6, 1, 1, -1, 288)
+
+
+def test_book_opening_comparisons():
+    import math
+
+    a = book_single_opening(1, 1.5, 10)
+    b = book_double_opening(1, 1, 1.5, 10)
+    assert a == pytest.approx(0.04 * math.sqrt(15))
+    assert b == pytest.approx(0.15 / math.sqrt(2) * math.sqrt(15))
+    assert (a / single_opening(0.62, 1, 1.5, 10, 293) - 1) * 100 == pytest.approx(5.7764197)
+    assert (b / double_opening(0.62, 1, 1, 1.5, 10, 293)["flow_m3_s"] - 1) * 100 == pytest.approx(
+        -6.5059704
+    )
+    assert book_opening_heights(100) == {"hc_m": 3, "hk_m": 10}
+    assert book_double_opening(0.5, 1, 2, 0) == 0
+    for call in (
+        lambda: book_opening_heights(0),
+        lambda: book_single_opening(1, 1, -1),
+        lambda: book_double_opening(1, float("nan"), 1, 1),
+    ):
+        with pytest.raises(ValueError):
+            call()
 
 
 def test_turbine():

@@ -2,14 +2,14 @@
 
 import json
 import re
-from pathlib import Path
 
 import numpy as np
 
+from openresivent.cfd.config import case_root
 from openresivent.cfd.postprocess import patch_flux, read_vtk
 from openresivent.cfd.template import oscillatory_uncertainty
 
-ROOT = Path.home() / "data/research/cfd/openresivent"
+ROOT = case_root()
 
 
 def evaluate(kind: str) -> dict:
@@ -17,10 +17,10 @@ def evaluate(kind: str) -> dict:
     rows = []
     for i in (1, 2, 4):
         flow = ROOT / (
-            f"p305-{kind}-{i}-" + ("monitor3" if kind == "upper" and i == 2 else "monitor2")
+            f"second-order-{kind}-{i}-" + ("monitor3" if kind == "upper" and i == 2 else "monitor2")
         )
         age = ROOT / (
-            f"p305-{kind}-{i}-"
+            f"second-order-{kind}-{i}-"
             + (
                 "age-polish"
                 if i == 4
@@ -84,7 +84,7 @@ def evaluate(kind: str) -> dict:
 
 def main():
     output = {k: evaluate(k) for k in ("upper", "lower")}
-    path = ROOT / "p305-verified.json"
+    path = ROOT / "second-order-verified.json"
     path.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n")
     print(path)
 

@@ -9,7 +9,7 @@ OpenResiVent 是住宅通风计算与校核工具。本版为公开测评候选�
 ```bash
 python -m venv .venv
 . .venv/bin/activate
-python -m pip install /本地路径/openresivent-0.5.0rc1-py3-none-any.whl
+python -m pip install /本地路径/openresivent-0.5.0rc2-py3-none-any.whl
 resivent --version
 ```
 

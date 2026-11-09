@@ -1,4 +1,4 @@
-"""\u5de5\u4f5c\u6307\u4ee4 A4–A10，均使用未四舍五入解析值比较。"""
+"""解析基准 A4–A10，均使用未四舍五入解析值比较。"""
 
 import math
 from pathlib import Path

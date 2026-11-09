@@ -10,7 +10,7 @@ def main():
     """读取锁文件并导出每个依赖的名称、版本及许可。"""
     lock = json.loads((ROOT / "web/package-lock.json").read_text())
     rows = []
-    allowed = {"MIT", "Apache-2.0", "BSD-3-Clause", "BSD-2-Clause", "ISC", "0BSD"}
+    allowed = {"MIT", "Apache-2.0", "BSD-3-Clause", "BSD-2-Clause", "ISC", "0BSD", "MPL-2.0"}
     for path, item in sorted(lock["packages"].items()):
         if not path:
             continue

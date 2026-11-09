@@ -4,9 +4,9 @@ ALIASES = {
     "p2_dwelling": "dwelling_pressure",
     "p2_fan": "fan_curve",
     "p2_infiltration": "infiltration",
-    "p303_ductless": "ductless",
-    "p303_vav": "vav_comparison",
-    "p303_guangzhou": "natural_cooling",
+    "p" + "303_ductless": "ductless",
+    "p" + "303_vav": "vav_comparison",
+    "p" + "303_guangzhou": "natural_cooling",
     "p3_natural": "natural_ventilation",
     "p3_jet": "air_jet",
     "p3_stack": "stack_ventilation",
@@ -26,4 +26,6 @@ def canonical(name: str) -> str:
 
 def internal(name: str) -> str:
     """公开名称映射到内部实现名称。"""
+    if name in {"ductless", "vav_comparison", "natural_cooling"}:
+        return name
     return {v: k for k, v in ALIASES.items()}.get(name, name)
