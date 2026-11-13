@@ -40,7 +40,7 @@ SKIP_DIRS = {".git", "node_modules", ".venv", "__pycache__", ".pytest_cache", ".
 
 # 已审核的图片资源只按“精确相对路径 + 固定 SHA256 + PNG 签名”放行，不按扩展名放行任何二进制。
 APPROVED_BINARY_ASSETS = {
-    "docs/images/household_check.png": "280184377e6b30faac617f44415c8744fe37fa372f1c918897b57ef1849ed2ce" ,
+    "docs/images/household_check.png": "280184377e6b30faac617f44415c8744fe37fa372f1c918897b57ef1849ed2ce",
 }
 PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
 
@@ -91,10 +91,7 @@ def scan(root, book=None, terms=None):
         approved_sha = APPROVED_BINARY_ASSETS.get(rel.as_posix())
         if approved_sha is not None:
             raw = path.read_bytes()
-            if (
-                hashlib.sha256(raw).hexdigest() != approved_sha
-                or not raw.startswith(PNG_SIGNATURE)
-            ):
+            if hashlib.sha256(raw).hexdigest() != approved_sha or not raw.startswith(PNG_SIGNATURE):
                 issues.append((str(rel), 0, "审核图片完整性失败"))
             continue
         try:

@@ -16,7 +16,7 @@ English | [中文版 (Simplified Chinese)](README.zh-CN.md)
 ## Intended Audience and Use Cases
 
 - **Residential Ventilation and Building HVAC Designers**: Sizing dwelling fresh-air rates, multi-room airflow distribution, kitchen/bathroom exhaust make-up air verification, and duct hydraulic resistance.
-- **Ventilation and Indoor Air Quality (IAQ) Researchers**: Multi-zone network steady-state flow simulation, crack leakage and orifice equivalent area calculation, envelope pressure difference prediction under kitchen hood exhaust, and filter dust-loading resistance decay analysis.
+- **Ventilation and Indoor Air Quality (IAQ) Researchers**: Multi-zone network steady-state flow simulation, crack leakage and orifice equivalent area calculation, envelope pressure difference prediction under kitchen hood exhaust, and filter dust-loading resistance analysis.
 - **Equipment R&D and Technical Support Engineers**: Product test data processing (fan affinity laws and sensible efficiency normalization) and parametric sweep sensitivity analysis.
 - **Standards Working Groups, Monograph Authors, and Educational Reviewers**: Full-dwelling verification wizard, normative clause cross-referencing, and consolidated report generation (DOCX, JSON, CSV).
 
@@ -25,7 +25,7 @@ English | [中文版 (Simplified Chinese)](README.zh-CN.md)
 - **Full-Dwelling Verification Wizard (`resivent check`)**: Complete fresh-air design and balance checks across dwelling zones, door/window envelope pressure differences, optional bedroom noise estimation, clause cross-checks, and report export (DOCX and JSON formats).
 - **Fresh-Air Sizing and Multi-Zone Flow**: Demand sizing via air change per hour (ACH) and per-person metrics; solves steady-state well-mixed multi-zone pressure and airflow paths coupled with crack leakage and orifice equivalent areas.
 - **Indoor Pressure Difference and Make-Up Air**: Predicts inter-room and envelope pressure differences under kitchen hood / bathroom exhaust fan operation, with mechanical/natural make-up air reverse sizing.
-- **Duct Hydraulics and Filter Decay**: Straight pipe and local loss calculations, plus mass-conservation periodic filter dust-loading resistance decay estimation.
+- **Duct Hydraulics and Filter Dust Loading**: Straight pipe and local loss calculations, plus mass-conservation periodic filter dust-loading resistance estimation.
 - **Bedroom Noise Screening**: Eight-octave band fan sound power levels from 63 Hz to 8 kHz, duct and elbow sound attenuation, and indoor A-weighted sound level prediction.
 - **Parametric Sweeps (`resivent sweep`)**: Full factorial or Latin hypercube sampling, subgroup compliance rate calculation, sensitivity ranking, SQLite persistence, and export to CSV/XLSX/DOCX.
 - **Product Test Processing**: Fan speed scaling and non-balanced heat exchange efficiency normalization.
@@ -47,7 +47,7 @@ Verify and install inside a clean virtual environment:
 python3 -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
-# 2. Verify SHA256 checksum (Linux/macOS)
+# 2. Verify SHA256 checksum (Linux)
 echo "ea9df32cd161cddfa7df30f27710cae9b1ce68741946bd2dfa4a5a7c3d046b87  openresivent-0.5.0rc2-py3-none-any.whl" | sha256sum -c
 
 # 3. Install the wheel

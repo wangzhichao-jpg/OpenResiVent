@@ -91,7 +91,7 @@ def test_symlink_is_rejected(scanner, tmp_path, approved_bytes):
 
 def test_private_term_and_fake_credential_detected(scanner, tmp_path):
     rel = "notes/release.md"
-    write(tmp_path, rel, ("包含 %s 与凭据 %s\n" % (FAKE_TERM, FAKE_TOKEN)).encode("utf8"))
+    write(tmp_path, rel, f"包含 {FAKE_TERM} 与凭据 {FAKE_TOKEN}\n".encode())
     found = labels(scanner.scan(tmp_path, terms=(FAKE_TERM,)), rel)
     assert "私有词表命中" in found
     assert "凭据" in found
